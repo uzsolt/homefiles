@@ -1,0 +1,47 @@
+
+error-log "/home/zsolt/logfiles/newsbeuter-error.log"
+cache-file "/system/user-cache/newsbeuter/cache.db"
+save-path "/home/zsolt/.config/newsbeuter/saved"
+
+browser /home/zsolt/bin/newsbeuter-browser
+confirm-exit yes
+
+history-limit 200
+keep-articles-days 14
+max-items 100
+
+refresh-on-startup yes
+auto-reload yes
+reload-time 20
+reload-threads 3
+
+always-display-description true
+
+feed-sort-order firsttag
+goto-first-unread yes
+
+feedlist-format "%3i %-12T %11u %t"
+articlelist-format "%3i|%1f|%D| %-80t | (%a)"
+article-sort-order flags
+highlight feedlist "[1-9][0-9]*/[0-9]*" white red
+
+color listnormal_unread   default   default bold
+color listfocus_unread    default   blue    bold
+
+highlight article "^Forrás:" default green underline
+highlight article "^Cím:.*" default blue underline
+highlight article "^Szerz.:" default yellow underline
+highlight article "^Link:" default color79 underline
+highlight article "^Dátum:" default color105 underline
+highlight article "^AFFECTS.*" default red underline
+highlight-article "title =~ \".*XviD.*\"" yellow default
+
+ignore-article "*" "title =~ \"User:.*\""
+ignore-article "*" "title =~ \".*Játék/ISO.*\""
+ignore-article "*" "title =~ \".*(XXX).*\""
+ignore-article "*" "title =~ \".*Eng/Sorozat.*\""
+ignore-article "*" "title =~ \".*Eng/Film.*\""
+ignore-article "*" "title =~ \".*Program/Egyéb.*\""
+ignore-article "*" "title =~ \".*Játék/Rip.*\""
+ignore-mode "download"
+
