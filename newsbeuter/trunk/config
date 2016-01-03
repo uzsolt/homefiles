@@ -1,6 +1,6 @@
 
 error-log "/home/zsolt/logfiles/newsbeuter-error.log"
-cache-file "/system/user-cache/newsbeuter/cache.db"
+cache-file "/home/zsolt/.config/newsbeuter/cache.db"
 save-path "/home/zsolt/.config/newsbeuter/saved"
 
 browser /home/zsolt/bin/newsbeuter-browser
