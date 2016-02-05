@@ -65,7 +65,6 @@ http://stackoverflow.com/feeds/tag?tagnames=tcsh&sort=newest "Geek" "~StackOverF
 http://stackoverflow.com/feeds/tag?tagnames=sh&sort=newest "Geek" "~StackOverFlow - sh"
 http://stackoverflow.com/feeds/tag/latex "Geek" "~StackOverFlow - LaTeX"
 http://stackoverflow.com/feeds/tag?tagnames=nginx&sort=newest "Geek" "~StackOverFlow - nginx"
-http://stackoverflow.com/feeds/tag?tagnames=ruby-on-rails&sort=newest "Geek" "~StackOverFlow - Ruby on Rails"
 http://stackoverflow.com/feeds/tag/vim "Geek" "~StackOverFlow - Vim"
 http://superuser.com/feeds/tag/bash "Geek" "~SU - Bash"
 http://superuser.com/feeds/tag/sed "Geek" "~SU - sed"
