@@ -34,6 +34,7 @@ highlight article "^Szerz.:" default yellow underline
 highlight article "^Link:" default color79 underline
 highlight article "^Dátum:" default color105 underline
 highlight article "^AFFECTS.*" default red underline
+highlight-article "title =~ \".*ethlen.*\"" yellow black underline
 highlight-article "title =~ \".*XviD.*\"" yellow default
 
 ignore-article "*" "title =~ \"User:.*\""
