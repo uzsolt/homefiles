@@ -1,0 +1,74 @@
+"source $VIMRUNTIME/vimrc_example.vim
+syntax on
+set nowrap
+set autoindent
+filetype plugin on
+filetype indent on
+
+" .vim/ftplugin/*.vim fájlokban esetleg változhatnak!
+"colorscheme molokai
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
+
+filetype plugin on
+set grepprg=grep\ -nH\ $*
+
+se completeopt=menuone,preview
+
+set foldmethod=syntax
+
+se expandtab
+se shiftwidth=2
+se tabstop=2
+se softtabstop=2
+set t_Co=256
+set noincsearch
+
+" source /home/zsolt/.vim/colors/slate-tex.vim
+
+set bg=dark
+se encoding=utf-8
+"se fileencoding=utf-8
+se termencoding=utf-8
+se nobk
+se is
+
+se nohls
+
+noremap <C-P><C-A> :TlistToggle<CR>
+noremap <C-P><C-R> :TlistShowTag<CR>
+noremap <C-P><C-P> :TlistShowPrototype<CR>
+noremap <C-A> :silent !mytags .<CR>:redraw!<CR>
+
+se tabstop=4
+
+map \d :r! date +"\%Y\%m\%d-\%H:\%M"<CR>
+map <C-R><C-R> :e!<CR>
+
+set wildmenu
+set wildmode=longest,list
+set mouse=r
+
+se laststatus=2
+map! <C-l> <Esc>mxb<Esc>:call <SNR>24_Help()<Cr>`x
+
+function! Browser()
+    let line = getline(".")
+    let line = matchstr(line,"\%(http://\|www\.\)[^ ,;\t]*")
+    exec "!firefox -new-tab ".line
+endfunction
+map <Leader>w :call Browser()<CR>
+
+set sessionoptions+=tabpages,globals
+
+"let g:showfuncctagsbin="/usr/local/bin/exctags"
+let g:VIMFILESDIR="/home/zsolt/.vim/"
+
+set undodir=~/.vim/undos/
+set dir=~/.vim/swap/
+
+" Ruby syntax miatt
+set re=1
+
+runtime! ftplugin/man.vim
