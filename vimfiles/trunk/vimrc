@@ -68,6 +68,8 @@ let g:VIMFILESDIR="/home/zsolt/.vim/"
 set undodir=~/.vim/undos/
 set dir=~/.vim/swap/
 
+let g:netrw_dirhistmax=0
+
 " Ruby syntax miatt
 set re=1
 
