@@ -36,22 +36,13 @@ se is
 
 se nohls
 
-noremap <C-P><C-A> :TlistToggle<CR>
-noremap <C-P><C-R> :TlistShowTag<CR>
-noremap <C-P><C-P> :TlistShowPrototype<CR>
-noremap <C-A> :silent !mytags .<CR>:redraw!<CR>
-
 se tabstop=4
-
-map \d :r! date +"\%Y\%m\%d-\%H:\%M"<CR>
-map <C-R><C-R> :e!<CR>
 
 set wildmenu
 set wildmode=longest,list
 set mouse=r
 
 se laststatus=2
-map! <C-l> <Esc>mxb<Esc>:call <SNR>24_Help()<Cr>`x
 
 function! Browser()
     let line = getline(".")
