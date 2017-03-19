@@ -45,6 +45,7 @@ http://stackoverflow.com/feeds/tag?tagnames=sh&sort=newest "Geek" "~StackOverFlo
 http://stackoverflow.com/feeds/tag/latex "Geek" "~StackOverFlow - LaTeX"
 http://stackoverflow.com/feeds/tag?tagnames=nginx&sort=newest "Geek" "~StackOverFlow - nginx"
 http://stackoverflow.com/feeds/tag?tagnames=makefile&sort=newest "Geek" "~StackOverFlow - Makefile"
+http://stackoverflow.com/feeds/tag?tagnames=gnu-make&sort=newest "Geek" "~StackOverflow - GNU make"
 http://stackoverflow.com/feeds/tag?tagnames=m4&sort=newest "Geek" "~StackOverFlow - m4"
 http://superuser.com/feeds/tag/bash "Geek" "~SU - Bash"
 http://superuser.com/feeds/tag/sed "Geek" "~SU - sed"
