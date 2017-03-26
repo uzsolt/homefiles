@@ -24,6 +24,7 @@ se tabstop=2
 se softtabstop=2
 set t_Co=256
 set noincsearch
+set isfname-==
 
 " source /home/zsolt/.vim/colors/slate-tex.vim
 
