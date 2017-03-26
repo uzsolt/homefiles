@@ -113,7 +113,8 @@ let g:Tex_IgnoredWarnings =
 	\'Overwriting file'."\n".
     \'Marginpar on page'."\n" .
     \'LaTeX Font Warning: Font shape'."\n" .
-    \'LaTeX Font Warning: Size substitutions'."\n"
+    \'LaTeX Font Warning: Size substitutions'."\n" .
+    \'Package auxhook Warning: Cannot patch' . "\n"
 
 let g:Tex_IgnoreLevel=20
 
