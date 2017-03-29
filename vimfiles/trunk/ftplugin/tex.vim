@@ -82,6 +82,7 @@ call IMAP('.si','\SI{<++>}{<++>}<++>','tex')
 call IMAP('.c','\celsius','tex')
 call IMAP('.p','\per ','tex')
 call IMAP('.it',"\\begin{itemize}\<CR>\\item <++>\<CR>\\end{itemize}\<CR><++>",'tex')
+call IMAP('.%','\SI{<++>}{\percent}<++>','tex')
 
 call IMAP(':*','\cdot ','tex')
 
