@@ -114,7 +114,9 @@ let g:Tex_IgnoredWarnings =
     \'Marginpar on page'."\n" .
     \'LaTeX Font Warning: Font shape'."\n" .
     \'LaTeX Font Warning: Size substitutions'."\n" .
-    \'Package auxhook Warning: Cannot patch' . "\n"
+    \'Package auxhook Warning: Cannot patch' . "\n" .
+    \'Package hyperref Warning: Option' . "\n" .
+    \'Package pgfplots Warning: running' . "\n"
 
 let g:Tex_IgnoreLevel=20
 
