@@ -77,6 +77,7 @@ http://freshcode.club/feed/xfer.rss "LinuxProgs"
 http://www.newsbeuter.org/releases.rss "LinuxProgs"
 http://www.linux.com/feature/?theme=rss "LinuxProgs"
 http://feed43.com/vim-scripts.xml "LinuxProgs"
+https://www.ctan.org/ctan-ann/rss.xml "LinuxProgs"
 
 http://www.archlinux.org/feeds/news/ "LinuxSystem"
 http://distrowatch.com/news/dwd.xml "LinuxSystem"
