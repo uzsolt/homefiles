@@ -43,9 +43,9 @@ let &cpo = s:save_cpo
 
 se textwidth=75
 
-call IMAP('@d',"\\documentclass{dolgozat}\<CR>\\begin{document}\<CR>\\begin{doga}[<+Cím+>]\<CR><++>\<CR>\\end{doga}\<CR>\\end{document}",'tex')
-call IMAP('@f',"\\documentclass{feladatsor}\<CR>\\begin{document}\<CR>\\begin{felsor}[<+Cím+>]\<CR><++>\<CR>\\end{felsor}\<CR>\\end{document}",'tex')
-call IMAP('@o',"\\documentclass[col2]{osszefoglalo}\<CR>\\begin{document}\<CR>\\begin{osszefoglalo}{<+Cím+>}\<CR>\\begin{itemize}\<CR>\\item <+item+>\<CR>\\end{itemize}\<CR>\\end{document}",'tex')
+map <buffer> @d :TTemplate dolgozat<CR><C-J>
+map <buffer> @f :TTemplate feladatsor<CR><C-J>
+map <buffer> @o :TTemplate osszefoglalo<CR><C-J>
 
 " questions - exsheets package
 call IMAP('??',"\\begin{question}{<++>}\<CR><++>\<CR>\\end{question}\<CR><++>",'tex')
@@ -88,9 +88,6 @@ call IMAP(':*','\cdot ','tex')
 
 " to insert 'é'
 imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
-
-map <buffer> Ids :0r! latex-template<CR>:0<CR> 
-map <buffer> Idg :0r! latex-template -mv<CR>:0<CR>
 
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
