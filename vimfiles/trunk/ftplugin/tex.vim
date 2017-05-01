@@ -114,7 +114,9 @@ let g:Tex_IgnoredWarnings =
     \'LaTeX Font Warning: Size substitutions'."\n" .
     \'Package auxhook Warning: Cannot patch' . "\n" .
     \'Package hyperref Warning: Option' . "\n" .
-    \'Package pgfplots Warning: running' . "\n"
+    \'Package pgfplots Warning: running' . "\n" .
+    \'Package csquotes Warning: No style for language' . "\n" .
+    \'Package magyar.ldf Warning: No effect on' . "\n"
 
 let g:Tex_IgnoreLevel=20
 
