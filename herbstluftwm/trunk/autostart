@@ -30,9 +30,6 @@ herbstclient load "rss" '(clients max:0)'
 herbstclient load dox '(split horizontal:0.5:1 (clients max:0) (clients max:1))'
 herbstclient use term
 
-herbstclient add_monitor 400x300+20+80 scratchpad scratchpad
-herbstclient lock_tag scratchpad
-
 herbstclient focus_monitor 0
 herbstclient raise_monitor 0
 
@@ -48,7 +45,7 @@ herbstclient rule instance"~""[Ll]atex-viewer" tag="dox" index=1 focus=false
 herbstclient rule instance="mupdf" tag="dox" index=1 focus=false
 herbstclient rule title="vps" instance="sterm" tag="vps" switchtag=on
 herbstclient rule title="devel" instance="sterm" tag="dev" switchtag=on
-herbstclient rule instance="speedcrunch" tag="scratchpad" monitor="scratchpad" focus=false
+herbstclient rule instance="speedcrunch" tag="scratchpad" focus=false
 herbstclient rule title"~"".*[wW]esnoth.*" instance="SDL_App" tag=game
 
 herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_DIALOG" focus=on pseudotile=on
