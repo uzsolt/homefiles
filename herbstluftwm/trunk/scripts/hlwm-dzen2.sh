@@ -10,6 +10,8 @@ SWAP_INFO=""
 TAGLIST=""
 UNREAD_ITEMS=0
 UNREAD_EMAILS=0
+TW_URGENT=0
+TW_LURGENT=0
 
 # Current tag
 function set_current_tag() {
@@ -52,6 +54,11 @@ function set_current_focus() {
     fi
 }
 
+function set_taskwarrior() {
+    TW_URGENT=$1
+    TW_LURGENT=$2
+}
+
 TL_CURRENT_BG=green
 TL_BG="#333333"
 function set_taglist() {
@@ -80,28 +87,46 @@ function set_swap_status() {
     fi
 }
 
+c_use_battery="#ff0000"
+function print_bat() {
+    if [ "${BAT_STATUS}" -eq 1 ]; then
+        msg_print ${c_use_battery} "#000000" "DC ${BAT_LIFE}%"
+    elif [ "${BAT_LIFE}" -lt 20 ]; then
+        msg_print ${c_use_battery} "#000000" "AC ${BAT_LIFE}%"
+    fi
+}
+
+function print_tw() {
+    if [ ${TW_URGENT} -gt 0 ]; then
+        msg_print "#ff0000" "#000000" "U${TW_URGENT}"
+    fi
+    if [ ${TW_LURGENT} -gt 0 ]; then
+        msg_print "#aaaaaa" "#000000" "LU${TW_LURGENT}"
+    fi
+}
+
+c_current_frame="#aaaaaa"
+function print_current_frame() {
+    if [ -n "${CURRENT_FRAME}" ]; then
+        msg_print ${c_current_frame} "#000000" "(${CURRENT_FRAME})"
+    fi
+}
+
 function msg_print() {
     echo -n "^fg($1)^bg($2)$3 "
 }
 
 c_current_tag="#00ff00"
 c_current_chain="#000000"
-c_current_frame="#aaaaaa"
 c_current_focus="#ffffff"
 c_unread_items="#999999"
-c_use_battery="#ff0000"
 function print_msg() {
-    if [ "${BAT_STATUS}" -eq 1 ]; then
-        msg_print ${c_use_battery} "#000000" "DC ${BAT_LIFE}%"
-    elif [ "${BAT_LIFE}" -lt 20 ]; then
-        msg_print ${c_use_battery} "#000000" "AC ${BAT_LIFE}%"
-    fi
+    print_tw
+    print_bat
     msg_print ${c_use_battery} "#000000" "${SWAP_INFO}"
     msg_print ${c_current_tag} "#000000" "${CURRENT_TAG}"
     #msg_print ${c_current_tag} "#000000" "${TAGLIST}"
-    if [ -n "${CURRENT_FRAME}" ]; then
-        msg_print ${c_current_frame} "#000000" "(${CURRENT_FRAME})"
-    fi
+    print_current_frame
     if [ -n "${CURRENT_CHAIN}" ]; then
         msg_print ${c_current_chain} "#ffff00" "${CURRENT_CHAIN}"
     fi
@@ -137,6 +162,7 @@ print_msg
 
 herbstclient --idle | while read line; do
     ARGS=( $line )
+    logger -t herbstluftwm ${ARGS[@]}
     case ${ARGS[0]} in
         chain_enter)
             set_current_chain ${ARGS[@]:1}
@@ -166,6 +192,9 @@ herbstclient --idle | while read line; do
             ;;
         user_battery_life)
             set_battery_life ${ARGS[1]}
+            ;;
+        user_taskwarrior)
+            set_taskwarrior ${ARGS[1]} ${ARGS[2]}
             ;;
         quit)
             if [ $# -gt 0 ]; then
