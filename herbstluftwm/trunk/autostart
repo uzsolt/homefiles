@@ -41,6 +41,7 @@ herbstclient rule class="KeepassX" pseudotile=on
 herbstclient rule class="Firefox" instance="Navigator" tag=web
 herbstclient rule instance="RSS" class="URxvt" tag="rss" focus=false
 herbstclient rule title="dox" instance="sterm" tag="dox" index=0 switchtag="on"
+herbstclient rule instance="qmpdclient" tag=music switchtag=off
 herbstclient rule instance"~""[Ll]atex-viewer" tag="dox" index=1 focus=false
 herbstclient rule instance="mupdf" tag="dox" index=1 focus=false
 herbstclient rule title="vps" instance="sterm" tag="vps" switchtag=on
