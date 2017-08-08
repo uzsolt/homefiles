@@ -10,7 +10,7 @@ out_to_console no
 pad_percents 2
 update_interval 1
 #update_interval_on_battery_status 5
-maximum_width 700
+maximum_width 800
 use_xft yes
 xftalpha 0.5
 
@@ -20,6 +20,8 @@ own_window_type panel
 own_window_hints undecorated,sticky,skip_taskbar,skip_pager
 minimum_size 700 10
 # maximum_size 700 10
+
+template0 ${goto \1}${color gray}\2:${execi 30 /usr/bin/head -n 1 \3}
 
 xftfont terminus:size=8
 # workspace_bar no
@@ -34,4 +36,6 @@ ${downspeedf wlan0}${goto 260}\
 ${downspeedgraph wlan0 10,20 00ff00 ff0000 1000 -t} \
 ${time %H:%M, %b. %d, %a.} \
 ${if_match ${top cpu 1}>20.0}${color red}${top cpu 1}% ${top name 1}${endif} \
-${goto 600}${color green}${desktop_name}
+${goto 600}${color green}${desktop_name} \
+${template0 650 M /home/zsolt/logfiles/gmail-unread-count} \
+${template0 690 R /home/zsolt/logfiles/newsbeuter-unread-items}
