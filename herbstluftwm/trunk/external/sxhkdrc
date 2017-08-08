@@ -13,6 +13,12 @@ mod4 + w ; {g,h,m,f,t,r,s}
   'http://192.168.2.102:9091/transmission/web/',\
   'https://direktnet.raiffeisen.hu/rai/direktnet/home.do'}
 
+mod4 + y ; {r,h,v}
+  herbstclient {remove,split horizontal,split vertical}
+
+mod4 + r : {Left,Right,Up,Down}
+  herbstclient resize {left,right,up,down} +0.01
+
 mod4 + a ; {v,h,m,g,r}
   herbstclient set_layout {vertical,horizontal,max,grid}
 
