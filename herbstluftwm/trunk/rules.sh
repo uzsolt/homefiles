@@ -53,13 +53,12 @@ hc rule \
 hc rule \
     class=wpa_gui \
     manage=off
-
 hc rule \
     class=Qmpdclient\
     tag=music
 
-hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on pseudotile=on manage=off
 hc rule windowtype='_NET_WM_WINDOW_TYPE_UTILITY' manage=off focus=on
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+#hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
