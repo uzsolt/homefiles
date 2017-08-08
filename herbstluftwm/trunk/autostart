@@ -59,7 +59,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 #    $panel $monitor &
 #done
 
-${HLWM_DIR}/rules.sh
+${HLWM_DIR}/tcsh/rules.csh
 
 ${HLWM_DIR}/external/autorun.sh
 ${HLWM_DIR}/external/daemons.csh
