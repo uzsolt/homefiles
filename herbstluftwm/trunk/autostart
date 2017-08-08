@@ -66,9 +66,9 @@ herbstclient set window_border_inner_width "1"
 herbstclient set window_border_normal_color "#454545"
 herbstclient set window_border_active_color "blue"
 herbstclient set always_show_frame "0"
-herbstclient set frame_gap	 "4"
+herbstclient set frame_gap	 "2"
 herbstclient set window_gap	 "1"
-herbstclient set frame_padding	 "2"
+herbstclient set frame_padding	 "1"
 herbstclient set mouse_recenter_gap	 "0"
 
 # mouse
