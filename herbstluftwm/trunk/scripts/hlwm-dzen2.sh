@@ -62,14 +62,11 @@ function set_taskwarrior() {
 }
 
 function set_unread_emails() {
-    UNREAD_EMAILS=$(head -n 1 ~/logfiles/gmail-unread-count)
+    UNREAD_EMAILS=$1
 }
 
 function set_unread_items() {
-    TMP=$(head -n 1 ~/logfiles/newsbeuter-unread-items)
-    if [ -n "${TMP}" ]; then
-        UNREAD_ITEMS=${TMP}
-    fi
+    UNREAD_ITEMS=$1
 }
 
 function set_swap_status() {
@@ -147,8 +144,8 @@ function init() {
     set_battery_life ${BAT[0]}
     set_battery_status ${BAT[1]}
     set_current_frame
-    set_unread_items
-    set_unread_emails
+    set_unread_items 0
+    set_unread_emails 0
 }
 
 trap cleanup INT TERM HUP
@@ -183,7 +180,7 @@ herbstclient --idle | while read line; do
             set_battery_status ${ARGS[1]}
             ;;
         user_newsbeuter)
-            set_unread_items
+            set_unread_items ${ARGS[1]}
             ;;
         user_gmail)
             set_unread_emails ${ARGS[1]}
