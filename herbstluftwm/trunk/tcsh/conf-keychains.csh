@@ -90,7 +90,7 @@ set urxvt="spawn urxvt-config-sh"
 set kc_term = (\
     "'b/${urxvt} freebsd'"\
     "'d/${urxvt} dox'"\
-    "'n/${urxvt} bashburn tmux -L burn -2 source-file /home/zsolt/.config/tmux/tmux-burn.conf'"\
+    "'n/${urxvt} bashburn tmux -L burn -2 '"\ #source-file /home/zsolt/.config/tmux/tmux-burn.conf'"\
     "'v/${urxvt} devel'"\
     "'x/${urxvt} main'"\
     "'p/${urxvt} vps ssh uzsolt.hu'"\
