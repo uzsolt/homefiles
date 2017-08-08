@@ -43,10 +43,11 @@ herbstclient rule class="Conky" manage=off
 herbstclient rule class="KeepassX" pseudotile=on
 herbstclient rule class="Firefox" instance="Navigator" tag=web
 herbstclient rule instance="RSS" class="URxvt" tag="rss" focus=false
-herbstclient rule instance="dox" class="URxvt" tag="dox" index=0 switchtag="on"
+herbstclient rule title="dox" instance="sterm" tag="dox" index=0 switchtag="on"
 herbstclient rule instance"~""[Ll]atex-viewer" tag="dox" index=1 focus=false
 herbstclient rule instance="mupdf" tag="dox" index=1 focus=false
-herbstclient rule instance="vps" class="URxvt" tag="vps" switchtag=on
+herbstclient rule title="vps" instance="sterm" tag="vps" switchtag=on
+herbstclient rule title="devel" instance="sterm" tag="dev" switchtag=on
 herbstclient rule instance="speedcrunch" tag="scratchpad" monitor="scratchpad" focus=false
 herbstclient rule title"~"".*[wW]esnoth.*" instance="SDL_App" tag=game
 
