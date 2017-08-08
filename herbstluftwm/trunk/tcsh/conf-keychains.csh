@@ -25,6 +25,7 @@ set kc_herbst = (\
     "'2/spawn xdotool click 2'"\
     "'1/spawn xdotool click 1'"\
     "'t/spawn ${HLWM_DIR}/scripts/hlwm_translate.sh'"\
+    "'c/spawn ${HLWM_DIR}/scripts/hlwm_calc.sh'"\
 )
 
 set kc_info = (\
@@ -78,7 +79,7 @@ set kc_web = (\
     "'h/${browser} hup.hu/user/4277/track'"\
     "'m/${browser} www.bgrg.mozanaplo.hu'"\
     "'f/${browser} www.facebook.com'"\
-    "'t/${browser} http://localhost:9091/transmission/web/'"\
+    "'t/${browser} http://rpi:9091/transmission/web/'"\
     "'r/${browser} https://direktnet.raiffeisen.hu/rai/direktnet/home.do'"\
 )
 
@@ -90,21 +91,6 @@ set kc_term = (\
     "'v/${urxvt} devel'"\
     "'x/${urxvt} main'"\
     "'p/${urxvt} vps ssh uzsolt.hu'"\
-)
-
-set torrent="spawn /usr/local/bin/transmission-remote"
-set torrent_down="${torrent} -d"
-set torrent_up="${torrent} -u"
-set kc_torrent = (\
-    "'1/${torrent_down} 100'"\
-    "'2/${torrent_down} 200'"\
-    "'3/${torrent_down} 300'"\
-    "'4/${torrent_down} 400'"\
-    "'5/${torrent_down} 500'"\
-    "'6/${torrent_down} 600'"\
-    "'q/${torrent_up} 5'"\
-    "'w/${torrent_up} 10'"\
-    "'e/${torrent_up} 15'"\
-    "'r/${torrent_up} 20'"\
+    "'i/${urxvt} rpi ssh 192.168.2.102'"\
 )
 
