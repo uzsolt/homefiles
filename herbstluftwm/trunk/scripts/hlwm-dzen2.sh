@@ -7,7 +7,6 @@ CURRENT_FOCUS=""
 CURRENT_FRAME=0
 CURRENT_TAG=""
 SWAP_INFO=""
-TAGLIST=""
 UNREAD_ITEMS=0
 UNREAD_EMAILS=0
 
@@ -60,15 +59,6 @@ function set_taskwarrior() {
     TW_VERYURGENT=$1
     TW_URGENT=$2
     TW_LURGENT=$3
-}
-
-TL_CURRENT_BG=green
-TL_BG="#333333"
-function set_taglist() {
-    TAGLIST=$(herbstclient tag_status | \
-        sed "s@\#\([a-z]*\)@^bg(${TL_CURRENT_BG})^fg(black)\1^bg(${TL_BG})@g ; \
-            s@\:\([a-z]*\)@^bg(${TL_BG})^fg(black)\1^bg(${TL_BG})@g ; \
-            s@\.[a-z]*@@g" | tr "\t" " ")
 }
 
 function set_unread_emails() {
@@ -132,7 +122,6 @@ function print_msg() {
     print_bat
     msg_print ${c_use_battery} "#000000" "${SWAP_INFO}"
     msg_print ${c_current_tag} "#000000" "${CURRENT_TAG}"
-    #msg_print ${c_current_tag} "#000000" "${TAGLIST}"
     print_current_frame
     if [ -n "${CURRENT_CHAIN}" ]; then
         msg_print ${c_current_chain} "#ffff00" "${CURRENT_CHAIN}"
@@ -158,7 +147,6 @@ function init() {
     set_battery_life ${BAT[0]}
     set_battery_status ${BAT[1]}
     set_current_frame
-    set_taglist
     set_unread_items
     set_unread_emails
 }
@@ -179,7 +167,6 @@ herbstclient --idle | while read line; do
             ;;
         tag_changed)
             set_current_tag ${ARGS[1]}
-            #set_taglist
             ;;
         focus_changed|window_title_changed)
             set_current_focus ${ARGS[@]:2}
