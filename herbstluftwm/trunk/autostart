@@ -76,9 +76,12 @@ ${HLWM_DIR}/scripts/swap.sh &
 PIDS_TO_KILL="${PIDS_TO_KILL} $!"
 ${HLWM_DIR}/scripts/mpd-idle.sh &
 PIDS_TO_KILL="${PIDS_TO_KILL} $!"
+${HLWM_DIR}/scripts/taskwarrior.sh &
+PIDS_TO_KILL="${PIDS_TO_KILL} $!"
 
 ${HLWM_DIR}/scripts/hlwm-dzen2.sh ${PIDS_TO_KILL} | \
     dzen2 -x 700 -w 666 -h 18&
 DZEN_PID=$!
 
 wmname LG3D
+
