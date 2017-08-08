@@ -94,7 +94,6 @@ KC_MPD_space="spawn mpc toggle"
 KC_MPD_n="spawn mpc next"
 KC_MPD_s="spawn mpc stop"
 KC_MPD_p="spawn mpc play"
-KC_MPD_i="spawn /home/zsolt/.config/herbstluftwm/scripts/mpd-info.sh"
 
 KC_VOLUME="volume"
 KC_VOLUME_HOTKEY="${Winkey}+v"
@@ -105,6 +104,7 @@ KC_INFO="info"
 KC_INFO_HOTKEY="${Winkey}+i"
 KC_INFO_n="spawn dzen-calendar"
 KC_INFO_w="spawn ${HLWM_DIR}/scripts/info_win.sh"
+KC_INFO_m="spawn ${HLWM_DIR}/scripts/mpd-info.sh"
 
 KEYCHAINS=`set | sed -n "/^KC_/ s@KC_\([^_=]*\).*@\1@p" | uniq`
 
