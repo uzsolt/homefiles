@@ -1,5 +1,6 @@
 #!/usr/local/bin/bash
 
+PATH=${PATH}:/usr/local/bin
 pgrep -q herbstluftwm || exit 0
 
 export DISPLAY=:0
