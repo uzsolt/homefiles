@@ -67,11 +67,9 @@ ${voffset -3}${offset 5}\
 ${if_mpd_playing}\
 ${color lightblue}\
 ${if_match "${mpd_status}" == "Paused" }[[ paused ]]${else}${scroll 60 2 ${mpd_smart}}${endif}\
-${goto 900}\
+${goto 960}\
 ${mpd_bar 5,40}\
-${goto 950}\
+${goto 1010}\
 ${mpd_elapsed}/${mpd_length}\
 ${endif}\
-${goto 1100}\
-${if_match "${acpiacadapter}" == "Running on battery"}${image /home/zsolt/wallpapers/icons/ec_warn.jpg -p 1050,0}${endif}\
 ]=];
