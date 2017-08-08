@@ -11,6 +11,6 @@ set tags = (\
     "u.util/(clients max:0)"\
     "g.game/(clients max:0)"\
     "p.vps/(clients max:0)"\
+    "i.rpi/(clients max:0)"\
 )
-
 
