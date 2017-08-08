@@ -1,8 +1,8 @@
 mod4 + {m,t} ; {x,w,d,r,v,p,u,l,i,s,g}
   herbstclient {move,use} {term,web,dox,rss,dev,vps,util,lowr,rpi,scratchpad,game}
 
-mod4 + x ; {x,d,p}
-  /home/zsolt/bin/myterminal {main,dox,vps}
+mod4 + x ; {x,d,p,v}
+  /home/zsolt/bin/myterminal {main,dox,vps,devel}
 
 mod4 + w ; {g,h,m,f,t,r,s}
   /home/zsolt/bin/mybrowser {\
