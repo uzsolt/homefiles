@@ -30,8 +30,8 @@ mod4 + p ; {space,n,s,p}
 
 mod4 + l ; {a,c,t,m,h}
   {\
-  dmenu_run -l 25,\
-  ~/.config/herbstluftwm/scripts/change_client.sh,\
+  rofi -show run,\
+  rofi -show window,\
   ~/.config/herbstluftwm/scripts/change_tag.sh,\
   ~/.config/herbstluftwm/scripts/mpd-playlist.sh,\
   ~/bin/task-notify\
