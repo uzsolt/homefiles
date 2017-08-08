@@ -5,7 +5,6 @@
 URXVT_CONFIG="spawn urxvt-config-sh "
 KC_TERM=terminal
 KC_TERM_HOTKEY="${Winkey}+x"
-KC_TERM_a="${URXVT_CONFIG} arch"
 KC_TERM_b="${URXVT_CONFIG} freebsd"
 KC_TERM_d="${URXVT_CONFIG} dox"
 KC_TERM_n="${URXVT_CONFIG} bashburn tmux -L burn -2 new-session; source-file /home/zsolt/.config/tmux/tmux-burn.conf"
