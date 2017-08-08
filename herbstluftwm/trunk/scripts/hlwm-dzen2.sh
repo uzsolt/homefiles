@@ -194,13 +194,6 @@ herbstclient --idle | while read line; do
         user_taskwarrior)
             set_taskwarrior ${ARGS[1]} ${ARGS[2]} ${ARGS[3]}
             ;;
-        quit)
-            if [ $# -gt 0 ]; then
-                kill -9 $*
-                pkill -9 wait_on
-            fi
-            exit
-            ;;
     esac
     print_msg
 done
