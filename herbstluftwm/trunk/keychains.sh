@@ -99,7 +99,7 @@ KC_VOLUME_a="spawn mixer vol -5"
 KEYCHAINS=`set | sed -n "/^KC_/ s@KC_\([^_=]*\).*@\1@p" | uniq`
 
 for kc in ${KEYCHAINS}; do
-    echo ">>> ${kc}"
+    #echo ">>> ${kc}"
     curr=`set | sed -n "/^KC_${kc}_HOTKEY/d ; \
         /^KC_${kc}/ s@KC_${kc}_\([^_=]*\).*@\1@p"`
 
@@ -107,7 +107,7 @@ for kc in ${KEYCHAINS}; do
     del="${chain} emit_hook ${hook_leave_keychain} \
         ${chain} keyunbind Escape" 
     for x in ${curr}; do
-        echo "    ${x}"
+        #echo "    ${x}"
         del="${del} ${chain} keyunbind ${x}"
     done
 
