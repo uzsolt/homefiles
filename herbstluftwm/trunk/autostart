@@ -41,9 +41,6 @@ hc set smart_window_surroundings 0
 hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 
-
-
-
 herbstclient set tree_style '╾│ ├└╼─┐'
 
 # do multi monitor setup here, e.g.:
@@ -64,13 +61,8 @@ ${HLWM_DIR}/rules.sh
 
 ${HLWM_DIR}/external/autorun.sh
 
-PIDS_TO_KILL=""
-${HLWM_DIR}/scripts/mpd-idle.sh &
-PIDS_TO_KILL="${PIDS_TO_KILL} $!"
-
-${HLWM_DIR}/scripts/hlwm-dzen2.sh ${PIDS_TO_KILL} | \
-    dzen2 -x 700 -w 666 -h 18&
-DZEN_PID=$!
+/usr/sbin/daemon -r -p ~/logfiles/hlwm-mpd.pid ${HLWM_DIR}/scripts/mpd-idle.sh
+/usr/sbin/daemon -r -p ~/logfiles/hlwm-dzen2.pid ${HLWM_DIR}/scripts/hlwm-dzen2-display.sh
 
 wmname LG3D
 
