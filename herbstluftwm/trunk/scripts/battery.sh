@@ -1,24 +1,19 @@
-#!/usr/bin/env bash
+#!/usr/local/bin/bash
 
-STATUS=""
+export DISPLAY=:0
 
-function update_status() {
-    STATUS=($(sysctl hw.acpi.battery.{life,state} | sed "s@.*: @@"))
-}
+LOGFILE=$HOME/logfiles/hlwm-battery
 
-update_status
+source ${LOGFILE}
 
-while true; do
-    OLD_STATUS=(${STATUS[@]})
-    update_status
-    if [ ${STATUS[1]} -ne ${OLD_STATUS[1]} ]; then
-        herbstclient emit_hook user_battery_status ${STATUS[1]}
-    fi
-    if [ ${STATUS[1]} -eq 1 -o ${STATUS[0]} -lt 20 ]; then
-        if [ ${STATUS[0]} -ne ${OLD_STATUS[0]} ]; then
-            herbstclient emit_hook user_battery_life ${STATUS[0]}
-        fi
-    fi
-    sleep 5
-done
+STATUS=($(sysctl hw.acpi.battery.{life,state} | sed "s@.*: @@"))
+
+new_life=${STATUS[0]}
+new_state=${STATUS[1]}
+
+if [ $state -ne $new_state -o $life -ne $new_life ]; then
+    herbstclient emit_hook user_battery ${new_state} ${new_life}
+    echo "state=${new_state}" > $LOGFILE
+    echo "life=${new_life}" >> $LOGFILE
+fi
 

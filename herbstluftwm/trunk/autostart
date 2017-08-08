@@ -65,18 +65,8 @@ ${HLWM_DIR}/rules.sh
 ${HLWM_DIR}/external/autorun.sh
 
 PIDS_TO_KILL=""
-#${HLWM_DIR}/scripts/check_files ~/logfiles/newsbeuter-unread-items user_newsbeuter &
-#PIDS_TO_KILL="${PIDS_TO_KILL} $!"
-#${HLWM_DIR}/scripts/check_files ~/logfiles/gmail-unread user_gmail &
-#PIDS_TO_KILL="${PIDS_TO_KILL} $!"
 ${HLWM_DIR}/scripts/check_counts
-${HLWM_DIR}/scripts/battery.sh &
-PIDS_TO_KILL="${PIDS_TO_KILL} $!"
-${HLWM_DIR}/scripts/swap.sh &
-PIDS_TO_KILL="${PIDS_TO_KILL} $!"
 ${HLWM_DIR}/scripts/mpd-idle.sh &
-PIDS_TO_KILL="${PIDS_TO_KILL} $!"
-${HLWM_DIR}/scripts/taskwarrior.sh &
 PIDS_TO_KILL="${PIDS_TO_KILL} $!"
 
 ${HLWM_DIR}/scripts/hlwm-dzen2.sh ${PIDS_TO_KILL} | \

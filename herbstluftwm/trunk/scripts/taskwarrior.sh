@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/local/bin/bash
+
+export DISPLAY=:0
 
 get_due_task() {
     PARAM="due.before:${2}day"
@@ -10,12 +12,8 @@ get_due_task() {
     echo ${DT}
 }
 
-while true; do
-    VERY_URGENT=`get_due_task 0 2`
-    URGENT=`get_due_task 2 3`
-    LOW_URGENT=`get_due_task 3 7`
-    #echo ${VERY_URGENT} ${URGENT} ${LOW_URGENT}
+VERY_URGENT=`get_due_task 0 2`
+URGENT=`get_due_task 2 3`
+LOW_URGENT=`get_due_task 3 7`
 
-    herbstclient emit_hook user_taskwarrior ${VERY_URGENT} ${URGENT} ${LOW_URGENT}
-    sleep 300
-done
+/usr/local/bin/herbstclient emit_hook user_taskwarrior ${VERY_URGENT} ${URGENT} ${LOW_URGENT}
