@@ -34,7 +34,7 @@ mod4 + p ; {space,n,s,p}
 
 mod4 + l ; {a,c,t,m,h}
   {\
-  rofi -show run,\
+  dmenu_run -l 20,
   rofi -show window,\
   ~/.config/herbstluftwm/scripts/change_tag.sh,\
   ~/.config/herbstluftwm/scripts/mpd-playlist.sh,\

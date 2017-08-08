@@ -2,7 +2,7 @@
 
 VPSLIST="backup.uzsolt.hu builder.uzsolt.hu devel.uzsolt.hu uzsolt.hu rpi"
 
-vps=`echo ${VPSLIST} | tr ' ' '\n' | rofi -dmenu -p 'VPS > ' -l 5`
+vps=`echo ${VPSLIST} | tr ' ' '\n' | dmenu -p 'VPS > ' -l 5`
 if [ $? -eq 0 ]; then
   if echo $VPSLIST | grep -q -w ${vps}; then
     myterminal vps ${vps}
