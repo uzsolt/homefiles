@@ -50,10 +50,6 @@ ${goto 290}\
 ${color lightblue}${upspeedgraph wlan0 10,30 00ff00 ff0000 100 -t}\
 ${goto 330}\
 ${uptime_short}\
-${goto 375}\
-${color gray}${template0 M /home/zsolt/logfiles/gmail-unread-count}\
-${goto 400}\
-${color gray}${template0 R /home/zsolt/logfiles/newsbeuter-unread-items}\
 ${goto 430}\
 ${if_match ${swapperc}>0}${color red}|Sw:${swapperc}%|${else}\
 ${endif}\

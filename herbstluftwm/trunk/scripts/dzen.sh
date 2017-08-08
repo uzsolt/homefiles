@@ -101,6 +101,11 @@ msg_frame() {
   msg "${_P_FRAME}" "${_FC_FRAME}" "${_BC_FRAME}" "${_FRAME}"
 }
 
+msg_gmail() {
+  mcount=`head -n 1 ${LOGDIR}/gmail-unread-count`
+  msg "${_P_GMAIL}" "${_FC_GMAIL}" "${_BC_GMAIL}" "G:${mcount}"
+}
+
 msg_rss() {
   msg "${_P_RSS}" "${_FC_RSS}" "${_BC_RSS}" "R:${_RSS}"
 }
@@ -116,13 +121,20 @@ msg_tasks() {
     msg ${_P_TASK2} "${_FC_TASK2}" "${_BC_TASK2}" "T:${_TASK2}"
 }
 
+msg_uzsolt() {
+  mcount=`head -n 1 ${LOGDIR}/uzsolt-unread-count`
+  msg "${_P_UZSOLT}" "${_FC_UZSOLT}" "${_BC_UZSOLT}" "U:${mcount}"
+}
+
 msg_all() {
-  msg_tag
+  msg_date
   msg_focus
   msg_frame
-  msg_date
+  msg_gmail
   msg_rss
+  msg_tag
   msg_tasks
+  msg_uzsolt
   printf "\n"
 }
 
