@@ -98,12 +98,24 @@ KC_VOLUME="volume"
 KC_VOLUME_HOTKEY="${Winkey}+v"
 KC_VOLUME_q="spawn mixer vol +5"
 KC_VOLUME_a="spawn mixer vol -5"
+KC_VOLUME_m="spawn mixer vol mute"
+KC_VOLUME_1="spawn mixer vol 10"
+KC_VOLUME_2="spawn mixer vol 20"
+KC_VOLUME_3="spawn mixer vol 30"
+KC_VOLUME_4="spawn mixer vol 40"
+KC_VOLUME_5="spawn mixer vol 50"
+KC_VOLUME_6="spawn mixer vol 60"
+KC_VOLUME_7="spawn mixer vol 70"
+KC_VOLUME_8="spawn mixer vol 80"
+KC_VOLUME_9="spawn mixer vol 90"
+
 
 KC_INFO="info"
 KC_INFO_HOTKEY="${Winkey}+i"
 KC_INFO_n="spawn dzen-calendar"
-KC_INFO_w="spawn ${HLWM_DIR}/scripts/info_win.sh"
-KC_INFO_m="spawn ${HLWM_DIR}/scripts/mpd-info.sh"
+KC_INFO_w="spawn ${HLWM_DIR}/scripts/info-win.sh"
+KC_INFO_m="spawn ${HLWM_DIR}/scripts/info-mpd.sh"
+KC_INFO_v="spawn ${HLWM_DIR}/scripts/info-vol.sh"
 
 KEYCHAINS=`set | sed -n "/^KC_/ s@KC_\([^_=]*\).*@\1@p" | uniq`
 
