@@ -3,6 +3,15 @@
 _TAG=""
 _FOCUS=""
 _FRAME=""
+_TASK1=0
+_TASK2=0
+
+_P_TAG=0
+_P_FOCUS=120
+_P_FRAME=70
+_P_DATE=1100
+_P_TASK1=1250
+_P_TASK2=1280
 
 _TITLE_SED='s@ - Mozilla Firefox@@'
 
@@ -29,27 +38,52 @@ update_tag() {
   _TAG="$1"
 }
 
+# $1 - 
+# $2 -
+update_tasks() {
+  _TASK1=$1
+  _TASK2=$2
+}
+
 msg_date() {
-  printf '^pa(1200)^fg(white)%s^fg()' "`date +'%H:%M (%b. %d., %a)'`"
+  printf '^pa(%d)^fg(white)%s^fg()' \
+    ${_P_DATE} \
+    "`date +'%H:%M (%b. %d., %a)'`"
 }
 
 msg_focus() {
-  printf "^pa(120)^bg(gray)^fg(black) %s ^bg()^fg()" "${_FOCUS}"
+  printf "^pa(%d)^bg(gray)^fg(black) %s ^bg()^fg()" \
+    ${_P_FOCUS} \
+    "${_FOCUS}"
 }
 
 msg_frame() {
-  printf "^pa(70)^fg(green)(%s)^fg()" "${_FRAME}"
+  printf "^pa(%d)^fg(green)(%s)^fg()" \
+    ${_P_FRAME} \
+    "${_FRAME}"
 }
 
 msg_tag() {
-  printf "^fg(yellow)::%s::^fg()" "${_TAG}"
+  printf "^pa(%d)^fg(yellow)::%s::^fg()" \
+    ${_P_TAG} \
+    "${_TAG}"
+}
+
+msg_tasks() {
+  [ "${_TASK1}" -gt 0 ] && printf "^pa(%d)^fg(red)S:%d" \
+    ${_P_TASK1} \
+    "${_TASK1}"
+  [ "${_TASK2}" -gt 0 ] && printf "^pa(%d)^fg(yellow)T:%d" \
+    ${_P_TASK2} \
+    "${_TASK2}"
 }
 
 msg_all() {
-  msg_tag   ; printf "%s" " "
-  msg_focus ; printf "%s" " "
+  msg_tag
+  msg_focus
   msg_frame
   msg_date
+  msg_tasks
   printf "\n"
 }
 
@@ -58,6 +92,9 @@ handle_event() {
   shift
   case ${event} in
     date)
+      ;;
+    task)
+      update_tasks $*
       ;;
     tag_changed)
       update_tag $*
