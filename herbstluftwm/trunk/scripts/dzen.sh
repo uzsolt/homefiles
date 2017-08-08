@@ -76,6 +76,6 @@ handle_event() {
 
 herbstclient --idle | while read line; do
   handle_event ${line}
-done | dzen2 -x 0 -w 1366 -h 18 -fn "terminus:size=8" -y 750
+done | dzen2 -x 0 -w 1366 -h 18 -fn "terminus:size=8" -y 750 -e 'button2=;'
 #-x 850 -w 666 -h 18 -fn "terminus:size=8"
 
