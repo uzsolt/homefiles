@@ -13,6 +13,7 @@ declare -A apps=(
     ["Opera"]="opera -nomail"
     ["MotoGT"]="motogt"
     ["Dosbox"]="dosbox"
+    ["FreeCiv"]="freeciv"
 )
 
 ret=$(for i in "${!apps[@]}"; do
