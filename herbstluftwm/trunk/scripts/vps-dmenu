@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VPSLIST="bsd-backup bsd-builder bsd-devel bsd-uzsolt uzsolt.hu rpi"
+VPSLIST="backup.uzsolt.hu builder.uzsolt.hu devel.uzsolt.hu uzsolt.hu 89.185.248.126 rpi"
 
 vps=`echo ${VPSLIST} | tr ' ' '\n' | rofi -dmenu -p 'VPS > ' -l 5`
 if [ $? -eq 0 ]; then
