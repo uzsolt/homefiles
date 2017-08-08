@@ -61,8 +61,6 @@ ${HLWM_DIR}/rules.sh
 
 ${HLWM_DIR}/external/autorun.sh
 
-wmname LG3D
-
 /usr/sbin/daemon -p ~/logfiles/hlwm-dzen2.pid ${HLWM_DIR}/scripts/hlwm-dzen2-display.sh
 /usr/sbin/daemon -r -p ~/logfiles/hlwm-mpd.pid ${HLWM_DIR}/scripts/mpd-idle.sh
 /usr/sbin/daemon -r -p ~/logfiles/hlwm-battery.pid ${HLWM_DIR}/scripts/battery.sh
