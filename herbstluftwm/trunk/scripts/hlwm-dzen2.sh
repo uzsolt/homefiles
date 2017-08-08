@@ -38,8 +38,8 @@ function set_current_chain() {
 }
 
 function set_current_frame() {
-    F_COUNT=$(herbstclient attr tags.focus.curframe_wcount)
-    if [ ${F_COUNT} -gt 1 ]; then
+    F_COUNT=$(herbstclient attr tags.focus.curframe_wcount || echo 0)
+    if [ "${F_COUNT}" -gt 1 ]; then
         F_INDEX=$(herbstclient attr tags.focus.curframe_windex)
         F_INDEX=$((F_INDEX+1))
         CURRENT_FRAME=${F_INDEX}/${F_COUNT}
