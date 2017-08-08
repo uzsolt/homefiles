@@ -12,9 +12,11 @@ LOGFILE=${LOGDIR}/${LOGFILE}
 source ${STLOGFILE}
 NEW_STATUS=`head -n 1 ${LOGFILE}` || exit 0
 
+[ -z "${STATUS}" -o -z "${NEW_STATUS}" ] && exit 0
+
 if [ "${STATUS}" -ne "${NEW_STATUS}" ]; then
-    /usr/local/bin/herbstclient emit_hook ${HOOK} ${NEW_STATUS}
     echo "STATUS=${NEW_STATUS}" > ${STLOGFILE}
+    /usr/local/bin/herbstclient emit_hook ${HOOK} ${NEW_STATUS} || exit 0
 fi
 
 
