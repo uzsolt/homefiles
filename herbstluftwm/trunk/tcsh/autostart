@@ -1,0 +1,24 @@
+#!/bin/tcsh
+
+herbstclient emit_hook reload
+herbstclient unlock
+
+herbstclient pad 0 20 0 0
+herbstclient rename default term || true
+
+set HLWM_DIR=${XDG_CONFIG_HOME}/herbstluftwm
+
+echo Theme
+${HLWM_DIR}/theme.csh
+echo Tags
+${HLWM_DIR}/tags.csh
+echo Rules
+${HLWM_DIR}/rules.csh
+echo Keybinds
+${HLWM_DIR}/keybinds.csh
+echo Keychains
+${HLWM_DIR}/keychains.csh
+
+${HLWM_DIR}/external/autorun.sh
+${HLWM_DIR}/external/daemons.sh
+
