@@ -109,7 +109,8 @@ ARR_KEYCHAINS = [
         "key"   =>  WINKEY+"i",
         "chains"=>  {
             "v" =>  "spawn #{HLWM_SCRIPT_DIR}/info-vol.sh",
-            "w" =>  "spawn #{HLWM_SCRIPT_DIR}/info-win.sh"
+            "w" =>  "spawn #{HLWM_SCRIPT_DIR}/info-win.sh",
+            "m" =>  "spawn #{HLWM_SCRIPT_DIR}/info-mpd.sh"
         }
     },
     {
