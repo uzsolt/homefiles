@@ -12,6 +12,7 @@ KC_TERM_n="${URXVT_CONFIG} bashburn tmux -L burn -2 new-session; source-file /ho
 KC_TERM_t="${URXVT_CONFIG} torrent transmission-remote-cli"
 KC_TERM_v="${URXVT_CONFIG} devel"
 KC_TERM_x="${URXVT_CONFIG} main"
+KC_TERM_p="${URXVT_CONFIG} vps ssh uzsolt.hu"
 
 KC_TAG="change tag"
 KC_TAG_HOTKEY="${Winkey}+t"
@@ -27,6 +28,7 @@ KC_TAG_i="use loimp"
 KC_TAG_m="use music"
 KC_TAG_u="use util"
 KC_TAG_g="use game"
+KC_TAG_p="use vps"
 
 KC_MOVETAG="move to tag"
 KC_MOVETAG_HOTKEY="${Winkey}+m"
@@ -42,6 +44,7 @@ KC_MOVETAG_i="move loimp"
 KC_MOVETAG_m="move music"
 KC_MOVETAG_u="move util"
 KC_MOVETAG_g="move game"
+KC_MOVETAG_p="move vps"
 
 KC_WEB="open web"
 KC_WEB_HOTKEY="${Winkey}+w"

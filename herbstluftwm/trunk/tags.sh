@@ -17,6 +17,7 @@ HL_LAYOUT_music='(clients max:0)'
 HL_LAYOUT_burn='(clients max:0)'
 HL_LAYOUT_util='(clients max:0)'
 HL_LAYOUT_game='(clients max:0)'
+HL_LAYOUT_vps='(clients max:0)'
 
 hc pad 0 20 0 0
 hc rename default "term" || true

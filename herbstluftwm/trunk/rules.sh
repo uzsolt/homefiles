@@ -33,6 +33,9 @@ hc rule \
     instance=dox class=URxvt \
     tag=dox index=0 switchtag=on
 hc rule \
+    instance=vps class=URxvt \
+    tag=vps switchtag=on
+hc rule \
     class=Latex-viewer \
     tag=dox index=1 focus=false
 hc rule \
@@ -56,6 +59,9 @@ hc rule \
 hc rule \
     class=Qmpdclient\
     tag=music
+hc rule \
+    title~'DOSBox.*' \
+    tag=game
 
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_UTILITY' manage=off focus=on
