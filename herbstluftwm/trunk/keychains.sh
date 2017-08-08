@@ -108,7 +108,8 @@ KC_VOLUME_6="spawn mixer vol 60"
 KC_VOLUME_7="spawn mixer vol 70"
 KC_VOLUME_8="spawn mixer vol 80"
 KC_VOLUME_9="spawn mixer vol 90"
-
+KC_VOLUME_w="spawn mixer pcm +5"
+KC_VOLUME_s="spawn mixer pcm -5"
 
 KC_INFO="info"
 KC_INFO_HOTKEY="${Winkey}+i"
