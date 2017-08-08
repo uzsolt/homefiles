@@ -20,6 +20,7 @@ set rules = (\
     "class=Qmpdclient tag=music"\
     "class=Cdcat tag=utils"\
     "class=Yad pseudotile=on"\
+    "class=Kruler manage=off"\
     "windowtype=_NET_WM_WINDOW_TYPE_DIALOG focus=on pseudotile=on"\
     "windowtype=_NET_WM_WINDOW_TYPE_UTILITY manage=off focus=on"\
     "windowtype~_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK) manage=off"\
