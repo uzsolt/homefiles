@@ -50,7 +50,7 @@ function set_current_frame() {
 
 function set_current_focus() {
     if [ -n "$*" ]; then
-        CURRENT_FOCUS="<< $(echo $* | sed "s@ - Mozilla Firefox@@ ; s@\(.\{60\}\).*@\1...@") >>"
+        CURRENT_FOCUS="<< $(echo $* | sed "s@ - Mozilla Firefox@@ ; s@DOSBox.*Program: @DOSBox - @ ; s@\(.\{60\}\).*@\1...@") >>"
     else
         CURRENT_FOCUS=""
     fi
