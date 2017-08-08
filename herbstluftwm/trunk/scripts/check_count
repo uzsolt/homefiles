@@ -1,0 +1,20 @@
+#!/usr/local/bin/bash
+
+export DISPLAY=:0
+
+LOGFILE=$1
+HOOK=$2
+
+LOGDIR=/home/zsolt/logfiles/
+STLOGFILE=${LOGDIR}/hlwm-${LOGFILE}
+LOGFILE=${LOGDIR}/${LOGFILE}
+
+source ${STLOGFILE}
+NEW_STATUS=`head -n 1 ${LOGFILE}` || exit 0
+
+if [ "${STATUS}" -ne "${NEW_STATUS}" ]; then
+    /usr/local/bin/herbstclient emit_hook ${HOOK} ${NEW_STATUS}
+    echo "STATUS=${NEW_STATUS}" > ${STLOGFILE}
+fi
+
+

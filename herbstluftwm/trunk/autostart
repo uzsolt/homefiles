@@ -65,7 +65,6 @@ ${HLWM_DIR}/rules.sh
 ${HLWM_DIR}/external/autorun.sh
 
 PIDS_TO_KILL=""
-${HLWM_DIR}/scripts/check_counts
 ${HLWM_DIR}/scripts/mpd-idle.sh &
 PIDS_TO_KILL="${PIDS_TO_KILL} $!"
 
