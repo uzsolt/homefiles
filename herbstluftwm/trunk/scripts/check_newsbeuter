@@ -1,4 +1,0 @@
-#!/bin/sh
-
-~/.config/herbstluftwm/scripts/check_count newsbeuter-unread-items user_newsbeuter
-

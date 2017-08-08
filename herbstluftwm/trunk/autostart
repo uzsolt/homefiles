@@ -1,20 +1,78 @@
-#!/bin/tcsh
+#!/bin/sh
+
+herbstclient emit_hook reload
+
+herbstclient unlock
+herbstclient emit_hook reload
 
 herbstclient keyunbind --all
 herbstclient mouseunbind --all
 herbstclient unrule --all
 
-herbstclient emit_hook reload
-herbstclient unlock
-herbstclient pad 0 20 0 0
+herbstclient pad 0 18 0 19 0
 
-hlwm-config.rb
+herbstclient add "term"
+herbstclient add "web"
+herbstclient add "rss"
+herbstclient add "dox"
+herbstclient add "dev"
+herbstclient add "lowr"
+herbstclient add "music"
+herbstclient add "util"
+herbstclient add "game"
+herbstclient add "vps"
+herbstclient add "rpi"
+herbstclient add "scratchpad"
+
+herbstclient load "term" '(clients max:0)'
+herbstclient load "web" '(clients max:0)'
+herbstclient load "rss" '(clients max:0)'
+herbstclient load dox '(split horizontal:0.5:1 (clients max:0) (clients max:1))'
 herbstclient use term
 
-#${0:h}/tcsh/tags.csh
-#${0:h}/tcsh/keybinds.csh
-#${0:h}/tcsh/keychains.csh
-#${0:h}/tcsh/theme.csh
+herbstclient add_monitor 400x300+20+80 scratchpad scratchpad
+herbstclient lock_tag scratchpad
+
+herbstclient focus_monitor 0
+herbstclient raise_monitor 0
+
+herbstclient set default_frame_layout 2
+
+herbstclient rule focus=on
+herbstclient rule class="Conky" manage=off
+herbstclient rule class="KeepassX" pseudotile=on
+herbstclient rule class="Firefox" instance="Navigator" tag=web
+herbstclient rule instance="RSS" class="URxvt" tag="rss" focus=false
+herbstclient rule instance="dox" class="URxvt" tag="dox" index=0 switchtag="on"
+herbstclient rule instance"~""[Ll]atex-viewer" tag="dox" index=1 focus=false
+herbstclient rule instance="vps" class="URxvt" tag="vps" switchtag=on
+herbstclient rule instance="speedcrunch" tag="scratchpad" monitor="scratchpad" focus=false
+
+herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_DIALOG" focus=on pseudotile=on
+herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_UTILITY" manage=off focus=on
+herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_NOTIFICATION" manage=off
+herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_DOCK" manage=off
+
+herbstclient set frame_border_normal_color "#101010"
+herbstclient set frame_border_active_color "#008800"
+herbstclient set frame_bg_normal_color "#565656"
+herbstclient set frame_bg_active_color "#345f0C"
+herbstclient set frame_bg_transparent "1"
+herbstclient set frame_border_width "3"
+herbstclient set window_border_width "3"
+herbstclient set window_border_inner_width "1"
+herbstclient set window_border_normal_color "#454545"
+herbstclient set window_border_active_color "#9fbc00"
+herbstclient set always_show_frame "1"
+herbstclient set frame_gap	 "2"
+herbstclient set window_gap	 "-2"
+herbstclient set frame_padding	 "2"
+herbstclient set smart_window_surroundings	 "0"
+herbstclient set smart_frame_surroundings	 "1"
+herbstclient set mouse_recenter_gap	 "0"
+
+herbstclient attr theme.tiling.reset 1
+herbstclient attr theme.floating.reset 1
 
 # mouse
 # herbstclient mousebind $Mod-Button1 move
@@ -22,8 +80,11 @@ herbstclient mousebind Mod1-Button2 resize
 # herbstclient mousebind $Mod-Button3 zoom
 
 herbstclient set tree_style '╾│ ├└╼─┐'
+sxhkd -c ~/.config/herbstluftwm/external/sxhkdrc > ~/logfiles/sxhkd &
 
-#${0:h}/tcsh/rules.csh
-${0:h}/external/autorun.sh
-${0:h}/external/daemons.csh
-
+wmname LG3D
+rm -f /home/zsolt/.config/keepassx/passwords.kdb.lock && keepassx -min &
+conky -d -c /home/zsolt/.config/herbstluftwm/external/conkyrc
+stalonetray -c /home/zsolt/.config/herbstluftwm/external/stalonetray &
+~/.config/herbstluftwm/scripts/dzen.sh &
+(sleep 2 ; speedcrunch) &
