@@ -10,6 +10,8 @@ SWAP_INFO=""
 TAGLIST=""
 UNREAD_ITEMS=0
 UNREAD_EMAILS=0
+
+TW_VERYURGENT=0
 TW_URGENT=0
 TW_LURGENT=0
 
@@ -55,8 +57,9 @@ function set_current_focus() {
 }
 
 function set_taskwarrior() {
-    TW_URGENT=$1
-    TW_LURGENT=$2
+    TW_VERYURGENT=$1
+    TW_URGENT=$2
+    TW_LURGENT=$3
 }
 
 TL_CURRENT_BG=green
@@ -97,11 +100,15 @@ function print_bat() {
 }
 
 function print_tw() {
+    infix=""
+    if [ ${TW_VERYURGENT} -gt 0 ]; then
+        msg_print "#ffffff" "#ff0000" "${TW_VERYURGENT}"
+    fi
     if [ ${TW_URGENT} -gt 0 ]; then
-        msg_print "#ff0000" "#000000" "U${TW_URGENT}"
+        msg_print "#ff0000" "#000000" "${TW_URGENT}"
     fi
     if [ ${TW_LURGENT} -gt 0 ]; then
-        msg_print "#aaaaaa" "#000000" "LU${TW_LURGENT}"
+        msg_print "#aaaaaa" "#000000" "${infix}${TW_LURGENT}"
     fi
 }
 
@@ -194,7 +201,7 @@ herbstclient --idle | while read line; do
             set_battery_life ${ARGS[1]}
             ;;
         user_taskwarrior)
-            set_taskwarrior ${ARGS[1]} ${ARGS[2]}
+            set_taskwarrior ${ARGS[1]} ${ARGS[2]} ${ARGS[3]}
             ;;
         quit)
             if [ $# -gt 0 ]; then
