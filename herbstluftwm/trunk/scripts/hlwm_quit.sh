@@ -1,14 +1,27 @@
 #!/bin/sh
 
-LINES=`wmctrl -l | grep -v "tmux\|RSS" | wc -l`
-pgrep -q vim && LINES=$(( LINES+1 ))
+PATH=$PATH:/usr/local/bin
 
-if [ ${LINES} -gt 0 ]; then
-    (
-        echo "Herbstluftwm kilépés - futó programok"
-        wmctrl -l | grep -v "tmux\|RSS" | sed "s@.*bsd-zsolt @@"
-        pgrep -q vim && echo VIM
-        sleep 5
-    ) | dzen2 -x 800 -y 40 -w 566 -l ${LINES} -e "onstart=uncollapse" -bg "red" -fg "white"
+FOUND=0
+for id in `herbstclient attr clients | sed -r "/.*children|focus|attributes|^$/d ; s@\.@@"`; do
+    wmclass=`herbstclient attr clients.${id}.class`
+    if echo "${wmclass}" | grep -q "libreoffice"; then
+        herbstclient jumpto ${id}
+        herbstclient close ${id}
+        FOUND=1
+    elif echo "${wmclass}" | grep -q "Firefox"; then
+        herbstclient close ${id}
+        #FOUND=1
+    fi
+done
 
-fi
+VIM=0
+for server in `vim --serverlist`; do
+    vim --remote-send "<ESC>:wqa<CR>"
+    VIM=1
+done
+
+[ ${VIM} -gt 0 ] && sleep 0.5
+
+[ ${FOUND} -eq 0 ] && herbstclient quit
+

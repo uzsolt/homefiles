@@ -7,7 +7,7 @@ hc_quit() {
     herbstclient emit_hook quit
 }
 
-hc keybind $Mod-Shift-q chain + emit_hook quit + quit
+hc keybind $Mod-Shift-q spawn ${HLWM_DIR}/scripts/hlwm_quit.sh
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn urxvt
