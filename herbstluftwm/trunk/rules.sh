@@ -60,8 +60,11 @@ hc rule \
     class=Qmpdclient\
     tag=music
 hc rule \
-    title~'DOSBox.*' \
+    class=SDLApp \
     tag=game
+hc rule
+    class=Cdcat \
+    tag=utils
 
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_UTILITY' manage=off focus=on
