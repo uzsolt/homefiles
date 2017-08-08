@@ -12,7 +12,7 @@ STATUS=""
 
 while true; do
     NEW_STATUS=`head -n 1 ${LOGFILE}`
-    if [ "${STATUS}" != "${NEW_STATUS}" ]; then
+    if [ "${STATUS}" != "${NEW_STATUS}" -a -n "${NEW_STATUS}" ]; then
         STATUS=${NEW_STATUS}
         /usr/local/bin/herbstclient emit_hook ${HOOK} ${NEW_STATUS} 2>/dev/null || exit 0
     fi
