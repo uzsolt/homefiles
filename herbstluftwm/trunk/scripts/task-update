@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DISPLAY=:1
+
 task_create() {
   shift
   task $* 2> /dev/null | sed -n '$ s, task.*,,p'
