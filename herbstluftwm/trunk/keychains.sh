@@ -26,6 +26,7 @@ KC_TAG_l="use lowr"
 KC_TAG_i="use loimp"
 KC_TAG_m="use music"
 KC_TAG_u="use util"
+KC_TAG_g="use game"
 
 KC_MOVETAG="move to tag"
 KC_MOVETAG_HOTKEY="${Winkey}+m"
@@ -40,6 +41,7 @@ KC_MOVETAG_l="move lowr"
 KC_MOVETAG_i="move loimp"
 KC_MOVETAG_m="move music"
 KC_MOVETAG_u="move util"
+KC_MOVETAG_g="move game"
 
 KC_WEB="open web"
 KC_WEB_HOTKEY="${Winkey}+w"
@@ -99,6 +101,7 @@ KC_VOLUME_a="spawn mixer vol -5"
 KC_INFO="info"
 KC_INFO_HOTKEY="${Winkey}+i"
 KC_INFO_n="spawn dzen-calendar"
+KC_INFO_w="spawn ${HLWM_DIR}/scripts/info_win.sh"
 
 KEYCHAINS=`set | sed -n "/^KC_/ s@KC_\([^_=]*\).*@\1@p" | uniq`
 
