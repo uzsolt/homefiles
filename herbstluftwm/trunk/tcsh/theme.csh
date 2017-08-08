@@ -1,6 +1,6 @@
 #!/bin/tcsh
 
-source ${XDG_CONFIG_HOME}/herbstluftwm/conf-theme.csh
+source ${0:h}/conf-theme.csh
 
 set chains=""
 foreach th ($theme:q)
