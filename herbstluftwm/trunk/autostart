@@ -1,0 +1,84 @@
+#!/bin/sh
+
+# this is a simple config for herbstluftwm
+
+. ~/.config/herbstluftwm/include.sh
+
+hc emit_hook reload
+# dunst &
+
+hc unlock
+
+${HLWM_DIR}/keybinds.sh
+${HLWM_DIR}/keychains.sh
+
+
+# mouse
+hc mouseunbind --all
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 resize
+hc mousebind $Mod-Button3 zoom
+
+# colors
+hc set frame_border_active_color '#222222'
+hc set frame_border_normal_color '#101010'
+hc set frame_bg_normal_color '#565656'
+hc set frame_bg_active_color '#345F0C'
+hc set frame_bg_transparent 1
+hc set frame_border_width 1
+
+hc set window_border_width 3
+hc set window_border_inner_width 1
+hc set window_border_normal_color '#454545'
+hc set window_border_active_color '#9fbc00'
+
+hc set always_show_frame 1
+hc set frame_gap 1
+# add overlapping window borders
+hc set window_gap -2
+hc set frame_padding 2
+hc set smart_window_surroundings 0
+hc set smart_frame_surroundings 1
+hc set mouse_recenter_gap 0
+
+
+
+
+herbstclient set tree_style '╾│ ├└╼─┐'
+
+# do multi monitor setup here, e.g.:
+# hc set_monitors 1280x1024+0+0 1280x1024+1280+0
+# or simply:
+# hc detect_monitors
+
+# find the panel
+#panel=~/.config/herbstluftwm/panel.sh
+#[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+#for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
+#    # start it on each monitor
+#    $panel $monitor &
+#done
+
+${HLWM_DIR}/tags.sh
+${HLWM_DIR}/rules.sh
+
+${HLWM_DIR}/external/autorun.sh
+
+PIDS_TO_KILL=""
+#${HLWM_DIR}/scripts/check_files ~/logfiles/newsbeuter-unread-items user_newsbeuter &
+#PIDS_TO_KILL="${PIDS_TO_KILL} $!"
+#${HLWM_DIR}/scripts/check_files ~/logfiles/gmail-unread user_gmail &
+#PIDS_TO_KILL="${PIDS_TO_KILL} $!"
+${HLWM_DIR}/scripts/check_counts
+${HLWM_DIR}/scripts/battery.sh &
+PIDS_TO_KILL="${PIDS_TO_KILL} $!"
+${HLWM_DIR}/scripts/swap.sh &
+PIDS_TO_KILL="${PIDS_TO_KILL} $!"
+${HLWM_DIR}/scripts/mpd-idle.sh &
+PIDS_TO_KILL="${PIDS_TO_KILL} $!"
+
+${HLWM_DIR}/scripts/hlwm-dzen2.sh ${PIDS_TO_KILL} | \
+    dzen2 -x 700 -w 666 -h 18&
+DZEN_PID=$!
+
+wmname LG3D

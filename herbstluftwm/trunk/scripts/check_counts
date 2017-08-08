@@ -1,0 +1,32 @@
+#!/bin/sh
+
+check_file() {
+    LOGFILE=$1
+    HOOK=$2
+
+    OLD_STATUS=0
+    while true; do
+
+        logger -t wait_on "check ${LOGFILE}"
+        STATUS=`head -n 1 ${LOGFILE}`
+
+        if [ $? -ne 0 -o -z "${STATUS}" ]; then
+            STATUS=${OLD_STATUS}
+            logger -t wait_on "error ${LOGFILE}"
+            continue
+        fi
+
+        if [ "${STATUS}" -ne "${OLD_STATUS}" ]; then
+            logger -t wait_on "changed ${LOGFILE}"
+            herbstclient emit_hook user_newsbeuter ${STATUS}
+            OLD_STATUS=${STATUS}
+        fi
+
+        sleep 30
+
+    done
+}
+
+LOGDIR=$HOME/logfiles
+check_file ${LOGDIR}/newsbeuter-unread-items user_newsbeuter &
+check_file ${LOGDIR}/gmail-unread-count user_gmail &

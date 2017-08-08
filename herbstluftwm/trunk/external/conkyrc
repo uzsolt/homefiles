@@ -1,0 +1,38 @@
+alignment top_left
+background no
+cpu_avg_samples 1
+double_buffer yes
+gap_x 0
+gap_y 0
+imlib_cache_size 0
+net_avg_samples 2
+out_to_console no
+pad_percents 2
+update_interval 1
+#update_interval_on_battery_status 5
+maximum_width 700
+use_xft yes
+xftalpha 0.5
+
+own_window yes
+#own_window_transparent yes
+own_window_type panel
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager
+minimum_size 700 10
+maximum_size 700 10
+
+xftfont terminus:size=8
+# workspace_bar no
+
+TEXT
+${color green}${cpu}%${goto 35}${color grey}${cpugraph 10,20 00ff00 ff0000 -t} \
+${freq}MHz \
+${goto 110}${acpitemp}C \
+${goto 140}${color yellow}$loadavg \
+${color lightblue}\
+${downspeedf wlan0}${goto 260}\
+${downspeedgraph wlan0 10,20 00ff00 ff0000 1000 -t} \
+${upspeedf wlan0} ${tab 10} \
+${upspeedgraph wlan0 10,20 00ff00 ff0000 64 -t} \
+${time %H:%M, %b. %d, %a.} \
+${if_match ${top cpu 1}>20.0}${color red}${top cpu 1}% ${top name 1}${endif}

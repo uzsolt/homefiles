@@ -1,0 +1,7 @@
+#!/bin/sh
+
+rm -f /home/users/zsolt/passwords.kdb.lock && keepassx -min &
+conky -d -c /home/zsolt/.config/herbstluftwm/external/conkyrc
+(sleep 1 ; stalonetray -c /home/zsolt/.config/herbstluftwm/external/stalonetray) &
+
+

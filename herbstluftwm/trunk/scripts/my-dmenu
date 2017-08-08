@@ -1,0 +1,23 @@
+#!/usr/local/bin/bash
+
+declare -A apps=(
+    ["transmission"]="transmission-daemon"
+    ["LO Writer"]="lowriter"
+    ["LO Calc"]="localc"
+    ["LO Impress"]="loimpress"
+    ["Wifi Mgr"]="wifimgr"
+    ["QMpdClient"]="qmpdclient"
+    ["Start newsbeueter"]="start-newsbeuter"
+    ["xterm"]="xterm"
+    ["ANYK"]="anyk"
+    ["Opera"]="opera -nomail"
+    ["MotoGT"]="motogt"
+)
+
+ret=$(for i in "${!apps[@]}"; do
+    echo "${i}"
+done | sort | dmenu -i -l 15 -nb blue -sb yellow -sf black)
+
+if [ $? -eq 0 ]; then
+    ${apps[$ret]}
+fi

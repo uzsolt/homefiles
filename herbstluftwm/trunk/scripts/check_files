@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# $1 - file to monitor
+# $2 - hook
+
+function cleanup() {
+    kill $(jobs -p) 2>/dev/null
+}
+
+trap cleanup INT TERM HUP
+
+while true; do
+    wait_on $1
+    logger -t wait_on $1
+    sleep 0.5
+    herbstclient emit_hook $2
+    sleep 1
+done
+
