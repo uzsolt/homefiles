@@ -33,4 +33,5 @@ ${color lightblue}\
 ${downspeedf wlan0}${goto 260}\
 ${downspeedgraph wlan0 10,20 00ff00 ff0000 1000 -t} \
 ${time %H:%M, %b. %d, %a.} \
-${if_match ${top cpu 1}>20.0}${color red}${top cpu 1}% ${top name 1}${endif}
+${if_match ${top cpu 1}>20.0}${color red}${top cpu 1}% ${top name 1}${endif} \
+${goto 600}${color green}${desktop_name}
