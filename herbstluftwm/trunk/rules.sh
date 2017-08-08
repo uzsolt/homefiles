@@ -29,14 +29,15 @@ hc rule \
 hc rule \
     instance=devel class=URxvt \
     tag=dev switchtag=on
-
 hc rule \
     instance=dox class=URxvt \
     tag=dox index=0 switchtag=on
 hc rule \
     class=Latex-viewer \
     tag=dox index=1 focus=false
-
+hc rule \
+    instance=latex-viewer \
+    tag=dox index=1 focus=false
 hc rule \
     class=LibreOffice \
     tag=lo
@@ -49,9 +50,12 @@ hc rule \
 hc rule \
     class=soffice \
     tag=loim
+hc rule \
+    class=wpa_gui \
+    manage=off
 
 hc rule \
-    class=qmpdclient\
+    class=Qmpdclient\
     tag=music
 
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
