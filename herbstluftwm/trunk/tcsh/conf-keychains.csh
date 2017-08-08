@@ -24,6 +24,7 @@ set kc_frame = (\
 set kc_herbst = (\
     "'2/spawn xdotool click 2'"\
     "'1/spawn xdotool click 1'"\
+    "'t/spawn ${HLWM_DIR}/scripts/hlwm_translate.sh'"\
 )
 
 set kc_info = (\
