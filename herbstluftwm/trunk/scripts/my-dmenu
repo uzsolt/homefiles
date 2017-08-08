@@ -1,26 +1,35 @@
-#!/usr/local/bin/bash
+#!/bin/tcsh
 
-declare -A apps=(
-    ["transmission"]="transmission-daemon"
-    ["LO Writer"]="lowriter"
-    ["LO Calc"]="localc"
-    ["LO Impress"]="loimpress"
-    ["Wifi Mgr"]="wifimgr"
-    ["QMpdClient"]="qmpdclient"
-    ["Start newsbeueter"]="start-newsbeuter"
-    ["xterm"]="xterm"
-    ["ANYK"]="anyk"
-    ["Opera"]="opera -nomail"
-    ["MotoGT"]="motogt"
-    ["Dosbox"]="dosbox"
-    ["FreeCiv"]="freeciv"
-    ["CdCat"]="cdcat"
+set apps = ( \
+    "transmission-daemon/transmission" \
+    "lowriter/LO Writer" \
+    "localc/LO Calc" \
+    "qmpdclient/QMpdClient" \
+    "start-newsbeuter/newsbeuter" \
+    "xterm/xterm" \
+    "anyk/ANYK" \
+    "opera -nomail/Opera" \
+    "motogt/MotoGT" \
+    "dosbox/DOSbox" \
+    "freeciv/FreeCiv" \
+    "cdcat/CdCat" \
 )
 
-ret=$(for i in "${!apps[@]}"; do
-    echo "${i}"
-done | sort | dmenu -i -l 15 -nb blue -sb yellow -sf black)
+set tmpfile=`mktemp -t hlwm-dmenu`
+set ret=""
+foreach app ($apps:q)
+    echo ${app:t} >> ${tmpfile}
+end
 
-if [ $? -eq 0 ]; then
-    ${apps[$ret]}
-fi
+set answer="`sort ${tmpfile} | dmenu -i -l 15 -nb blue -sb yellow -sf black`"
+rm ${tmpfile}
+
+if ( $? == 0 ) then
+    foreach app ($apps:q)
+        if ( "${answer}" == "${app:t}" ) then
+            ${app:h} &
+            break
+        endif
+    end
+endif
+
