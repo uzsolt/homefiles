@@ -16,6 +16,8 @@ set apps = ( \
     "openttd/OpenTTD" \
     "geogebra/GeoGebra" \
     "chrome/Chromium" \
+    "wesnoth/Battle for Wesnoth" \
+    "firefox/Firefox" \
 )
 
 set tmpfile=`mktemp -t hlwm-dmenu`
