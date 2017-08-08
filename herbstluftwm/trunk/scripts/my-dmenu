@@ -20,6 +20,7 @@ set apps = ( \
     "wesnoth/Battle for Wesnoth" \
     "firefox/Firefox" \
     "surf-embed/Surf in Tabbed"\
+    "st/Suckless st"\
 )
 
 set tmpfile=`mktemp -t hlwm-dmenu`
