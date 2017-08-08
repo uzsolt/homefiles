@@ -11,9 +11,9 @@ ${0:h}/tcsh/theme.csh
 
 # mouse
 herbstclient mouseunbind --all
-herbstclient mousebind $Mod-Button1 move
-herbstclient mousebind $Mod-Button2 resize
-herbstclient mousebind $Mod-Button3 zoom
+# herbstclient mousebind $Mod-Button1 move
+# herbstclient mousebind $Mod-Button2 resize
+# herbstclient mousebind $Mod-Button3 zoom
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
