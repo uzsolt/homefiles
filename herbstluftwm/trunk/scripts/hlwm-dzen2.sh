@@ -199,7 +199,7 @@ herbstclient --idle | while read line; do
             set_unread_items
             ;;
         user_gmail)
-            set_unread_emails
+            set_unread_emails ${ARGS[1]}
             ;;
         user_swap)
             set_swap_status ${ARGS[1]}
