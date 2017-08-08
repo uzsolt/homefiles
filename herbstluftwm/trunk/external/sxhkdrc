@@ -65,4 +65,4 @@ alt+Escape
   herbstclient use_previous
 
 mod4 + q
-  /usr/local/share/examples/herbstluftwm/scratchpad.sh
+  ~/.config/herbstluftwm/scripts/scratchpad.sh
