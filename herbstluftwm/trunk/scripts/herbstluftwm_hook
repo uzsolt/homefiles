@@ -1,4 +1,4 @@
 #!/bin/sh
 
-DISPLAY=:0
+export DISPLAY=:0
 /usr/bin/pgrep -q herbstluftwm && /usr/local/bin/herbstclient emit_hook $*

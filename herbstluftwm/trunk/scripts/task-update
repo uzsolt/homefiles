@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DISPLAY=:1
+export DISPLAY=:0
 
 task_create() {
   shift
