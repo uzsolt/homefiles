@@ -19,6 +19,7 @@ update_frame() {
   COUNT=`herbstclient attr tags.focus.curframe_wcount || echo 0`
   F_INDEX=`herbstclient attr tags.focus.curframe_windex`
   F_INDEX=$((F_INDEX+1))
+  [ "${COUNT}" -eq 0 ] && F_INDEX=0
   _FRAME="${F_INDEX}/${COUNT}"
 }
 
