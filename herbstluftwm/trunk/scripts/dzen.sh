@@ -47,7 +47,7 @@ _TITLE_SED='s@ - Mozilla Firefox@@'
 update_focus() {
   # we don't use winid ($1)
   shift
-  _FOCUS=`echo "$*" | sed "${_TITLE_SED}"`
+  _FOCUS="`echo "$*" | sed "${_TITLE_SED}"`"
 }
 
 update_frame() {
