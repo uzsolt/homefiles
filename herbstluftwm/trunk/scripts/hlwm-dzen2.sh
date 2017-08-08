@@ -118,18 +118,18 @@ function print_msg() {
     print_tw
     print_bat
     msg_print ${c_use_battery} "#000000" "${SWAP_INFO}"
-    msg_print ${c_current_tag} "#000000" "${CURRENT_TAG}"
+    #msg_print ${c_current_tag} "#000000" "${CURRENT_TAG}"
     print_current_frame
     if [ -n "${CURRENT_CHAIN}" ]; then
         msg_print ${c_current_chain} "#ffff00" "${CURRENT_CHAIN}"
     fi
     msg_print ${c_current_focus} "#000000" "${CURRENT_FOCUS}"
-    if [ "${UNREAD_ITEMS}" -gt 0 ]; then
-        msg_print ${c_unread_items} "#000000" "R:${UNREAD_ITEMS}"
-    fi
-    if [ "${UNREAD_EMAILS}" -gt 0 ]; then
-        msg_print ${c_unread_items} "#000000" "M:${UNREAD_EMAILS}"
-    fi
+    #if [ "${UNREAD_ITEMS}" -gt 0 ]; then
+    #    msg_print ${c_unread_items} "#000000" "R:${UNREAD_ITEMS}"
+    #fi
+    #if [ "${UNREAD_EMAILS}" -gt 0 ]; then
+    #    msg_print ${c_unread_items} "#000000" "M:${UNREAD_EMAILS}"
+    #fi
     echo
 }
 
