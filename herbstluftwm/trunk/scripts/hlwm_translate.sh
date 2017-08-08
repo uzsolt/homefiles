@@ -2,7 +2,7 @@
 
 . `dirname $0`/dzen2-sets.sh
 
-PING_HOST=8.8.8.9
+PING_HOST=8.8.8.8
 
 ret=`yad --title="Fordítás" --form --item-separator=, --field="Irány":CB "en:hu","hu:en" --field="Szöveg"`
 if [ $? -eq 0 ]; then
