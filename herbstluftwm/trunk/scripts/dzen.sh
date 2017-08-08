@@ -1,14 +1,20 @@
 #!/bin/sh
 
+LOGDIR=/home/zsolt/logfiles/
+
 _TAG=""
 _FOCUS=""
 _FRAME=""
+_RSS=0
 _TASK1=0
 _TASK2=0
 
 _P_TAG=0
-_P_FOCUS=120
 _P_FRAME=70
+_P_FOCUS=120
+_P_RSS=900
+_P_GMAIL=970
+_P_UZSOLT=1040
 _P_DATE=1100
 _P_TASK1=1250
 _P_TASK2=1280
@@ -20,12 +26,18 @@ _FC_FOCUS="black"
 _BC_FOCUS="gray"
 _FC_FRAME="green"
 _BC_FRAME="${_BC_DEFAULT}"
+_FC_GMAIL="grey"
+_BC_GMAIL="${_BC_DEFAULT}"
+_FC_RSS="grey"
+_BC_RSS="${_BC_DEFAULT}"
 _FC_TAG="yellow"
 _BC_TAG="${_BC_DEFAULT}"
 _FC_TASK1="red"
 _BC_TASK1="${_BC_DEFAULT}"
 _FC_TASK2="yellow"
 _BC_TASK2="${_BC_DEFAULT}"
+_FC_UZSOLT="grey"
+_BC_UZSOLT="${_BC_DEFAULT}"
 
 _TITLE_SED='s@ - Mozilla Firefox@@'
 
@@ -44,6 +56,10 @@ update_frame() {
   F_INDEX=$((F_INDEX+1))
   [ "${COUNT}" -eq 0 ] && F_INDEX=0
   _FRAME="${F_INDEX}/${COUNT}"
+}
+
+update_rss() {
+  _RSS=$1
 }
 
 # $1 - tag
@@ -85,12 +101,15 @@ msg_frame() {
   msg "${_P_FRAME}" "${_FC_FRAME}" "${_BC_FRAME}" "${_FRAME}"
 }
 
+msg_rss() {
+  msg "${_P_RSS}" "${_FC_RSS}" "${_BC_RSS}" "R:${_RSS}"
+}
+
 msg_tag() {
   msg "${_P_TAG}" "${_FC_TAG}" "${_BC_TAG}" "::${_TAG}::"
 }
 
 msg_tasks() {
-  echo ${_TASK1} ${_TASK2} >&2
   [ "${_TASK1}" -gt 0 ] && \
     msg ${_P_TASK1} "${_FC_TASK1}" "${_BC_TASK1}" "S:${_TASK1}"
   [ "${_TASK2}" -gt 0 ] && \
@@ -102,6 +121,7 @@ msg_all() {
   msg_focus
   msg_frame
   msg_date
+  msg_rss
   msg_tasks
   printf "\n"
 }
@@ -121,6 +141,9 @@ handle_event() {
     focus_changed)
       update_focus $*
       update_frame
+      ;;
+    rss)
+      update_rss $*
       ;;
     rule)
       update_frame
