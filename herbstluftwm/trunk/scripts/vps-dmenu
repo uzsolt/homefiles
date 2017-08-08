@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VPSLIST="bsd-builder bsd-devel uzsolt.hu"
+VPSLIST="bsd-backup bsd-builder bsd-devel bsd-uzsolt uzsolt.hu"
 
 vps=`echo ${VPSLIST} | tr ' ' '\n' | dmenu -p 'VPS > ' -l 5`
 if [ $? -eq 0 ]; then
