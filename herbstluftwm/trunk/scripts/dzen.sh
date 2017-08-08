@@ -13,6 +13,20 @@ _P_DATE=1100
 _P_TASK1=1250
 _P_TASK2=1280
 
+_BC_DEFAULT="#111111"
+_FC_DATE="white"
+_BC_DATE="${_BC_DEFAULT}"
+_FC_FOCUS="black"
+_BC_FOCUS="gray"
+_FC_FRAME="green"
+_BC_FRAME="${_BC_DEFAULT}"
+_FC_TAG="yellow"
+_BC_TAG="${_BC_DEFAULT}"
+_FC_TASK1="red"
+_BC_TASK1="${_BC_DEFAULT}"
+_FC_TASK2="yellow"
+_BC_TASK2="${_BC_DEFAULT}"
+
 _TITLE_SED='s@ - Mozilla Firefox@@'
 
 # $1 - winid
@@ -45,37 +59,42 @@ update_tasks() {
   _TASK2=$2
 }
 
+# $1 - position
+# $2 - fg color
+# $3 - bg color
+# $4- - message
+msg() {
+  m_pos="$1";shift
+  m_fgcolor="$1";shift
+  m_bgcolor="$1";shift
+  m_msg=$@
+
+  printf '^pa(%d)^fg(%s)^bg(%s)%s^bg()^fg()' \
+    ${m_pos} ${m_fgcolor} ${m_bgcolor} "${m_msg}"
+}
+
 msg_date() {
-  printf '^pa(%d)^fg(white)%s^fg()' \
-    ${_P_DATE} \
-    "`date +'%H:%M (%b. %d., %a)'`"
+  msg "${_P_DATE}" "${_FC_DATE}" "${_BC_DATE}" "`date +'%H:%M (%b. %d., %a)'`"
 }
 
 msg_focus() {
-  printf "^pa(%d)^bg(gray)^fg(black) %s ^bg()^fg()" \
-    ${_P_FOCUS} \
-    "${_FOCUS}"
+  msg "${_P_FOCUS}" "${_FC_FOCUS}" "${_BC_FOCUS}" "${_FOCUS}"
 }
 
 msg_frame() {
-  printf "^pa(%d)^fg(green)(%s)^fg()" \
-    ${_P_FRAME} \
-    "${_FRAME}"
+  msg "${_P_FRAME}" "${_FC_FRAME}" "${_BC_FRAME}" "${_FRAME}"
 }
 
 msg_tag() {
-  printf "^pa(%d)^fg(yellow)::%s::^fg()" \
-    ${_P_TAG} \
-    "${_TAG}"
+  msg "${_P_TAG}" "${_FC_TAG}" "${_BC_TAG}" "::${_TAG}::"
 }
 
 msg_tasks() {
-  [ "${_TASK1}" -gt 0 ] && printf "^pa(%d)^fg(red)S:%d" \
-    ${_P_TASK1} \
-    "${_TASK1}"
-  [ "${_TASK2}" -gt 0 ] && printf "^pa(%d)^fg(yellow)T:%d" \
-    ${_P_TASK2} \
-    "${_TASK2}"
+  echo ${_TASK1} ${_TASK2} >&2
+  [ "${_TASK1}" -gt 0 ] && \
+    msg ${_P_TASK1} "${_FC_TASK1}" "${_BC_TASK1}" "S:${_TASK1}"
+  [ "${_TASK2}" -gt 0 ] && \
+    msg ${_P_TASK2} "${_FC_TASK2}" "${_BC_TASK2}" "T:${_TASK2}"
 }
 
 msg_all() {
@@ -122,5 +141,3 @@ handle_event() {
 herbstclient --idle | while read line; do
   handle_event ${line}
 done | dzen2 -x 0 -w 1366 -h 18 -fn "terminus:size=8" -y 750 -e 'button2=;' -ta l
-#-x 850 -w 666 -h 18 -fn "terminus:size=8"
-
