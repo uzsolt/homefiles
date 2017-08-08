@@ -2,7 +2,7 @@
 
 . `dirname $0`/dzen2-sets.sh
 
-PING_HOST=8.8.8.8
+PING_HOST=8.8.8.9
 
 ret=`yad --title="Fordítás" --form --item-separator=, --field="Irány":CB "en:hu","hu:en" --field="Szöveg"`
 if [ $? -eq 0 ]; then
@@ -18,7 +18,7 @@ if [ $? -eq 0 ]; then
             forditas=`trans -b ${d} ${t}`
             echo "${t}: ${forditas}"
         else
-            echo "[[ nincs net ]]"
+            echo "${DZ_ERR}[[ nincs net ]]"
         fi
         sleep 5
     } | dzen2 ${DZEN2_INFO} &
