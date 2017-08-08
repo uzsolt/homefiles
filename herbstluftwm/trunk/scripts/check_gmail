@@ -1,0 +1,3 @@
+#!/bin/sh
+
+~/.config/herbstluftwm/scripts/check_count gmail-unread-count user_gmail
