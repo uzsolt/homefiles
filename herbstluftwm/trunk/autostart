@@ -4,10 +4,13 @@ herbstclient emit_hook reload
 herbstclient unlock
 herbstclient pad 0 20 0 0
 
-${0:h}/tcsh/tags.csh
-${0:h}/tcsh/keybinds.csh
-${0:h}/tcsh/keychains.csh
-${0:h}/tcsh/theme.csh
+hlwm-config.rb
+herbstclient use term
+
+#${0:h}/tcsh/tags.csh
+#${0:h}/tcsh/keybinds.csh
+#${0:h}/tcsh/keychains.csh
+#${0:h}/tcsh/theme.csh
 
 # mouse
 herbstclient mouseunbind --all
@@ -17,7 +20,7 @@ herbstclient mouseunbind --all
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
-${0:h}/tcsh/rules.csh
+#${0:h}/tcsh/rules.csh
 ${0:h}/external/autorun.sh
 ${0:h}/external/daemons.csh
 
