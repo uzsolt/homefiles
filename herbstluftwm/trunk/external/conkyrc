@@ -74,6 +74,4 @@ ${mpd_elapsed}/${mpd_length}\
 ${endif}\
 ${goto 1100}\
 ${if_match "${acpiacadapter}" == "Running on battery"}${image /home/zsolt/wallpapers/icons/ec_warn.jpg -p 1050,0}${endif}\
-${color red} ${template0 S /home/zsolt/logfiles/task1}\
-${color yellow} ${template0 T /home/zsolt/logfiles/task2}\
 ]=];
