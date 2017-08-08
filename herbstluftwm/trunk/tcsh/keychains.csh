@@ -20,7 +20,7 @@ foreach kc ($keychains:q)
 
     set kcn=${kc:t:e}
     set kc_hk=${kc:h}
-    set kc_info_str=${kc:t:r:q}
+    set KC_info_str=${kc:t:r:q}
 
     eval set `set | sed -n "/^${kcn}/ s@^${kcn}@kctmp=@p"`
 
@@ -41,7 +41,7 @@ foreach kc ($keychains:q)
     end
 
     herbstclient keybind ${kc_hk} chain ${hksep} \
-        emit_hook chain_enter ${kc_info_str} \
+        emit_hook chain_enter ${KC_info_str} \
         ${bind} \
         ${hksep} keybind Escape chain ${unbind}
 
