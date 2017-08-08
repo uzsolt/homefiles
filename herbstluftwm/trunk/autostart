@@ -87,8 +87,8 @@ sxhkd -c ~/.config/herbstluftwm/external/sxhkdrc > ~/logfiles/sxhkd &
 
 wmname LG3D
 rm -f /home/zsolt/.config/keepassx/passwords.kdb.lock && keepassx -min &
-conky -d -c /home/zsolt/.config/herbstluftwm/external/conkyrc
+conky -d -c /home/zsolt/.config/herbstluftwm/external/conkyrc &
 stalonetray -c /home/zsolt/.config/herbstluftwm/external/stalonetray &
 ~/.config/herbstluftwm/scripts/dzen.sh &
-(sleep 2 ; speedcrunch) &
+(sleep 2 ; /usr/local/bin/speedcrunch) &
 
