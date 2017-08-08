@@ -48,6 +48,7 @@ herbstclient rule instance"~""[Ll]atex-viewer" tag="dox" index=1 focus=false
 herbstclient rule instance="mupdf" tag="dox" index=1 focus=false
 herbstclient rule instance="vps" class="URxvt" tag="vps" switchtag=on
 herbstclient rule instance="speedcrunch" tag="scratchpad" monitor="scratchpad" focus=false
+herbstclient rule title"~"".*[wW]esnoth.*" instance="SDL_App" tag=game
 
 herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_DIALOG" focus=on pseudotile=on
 herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_UTILITY" manage=off focus=on
