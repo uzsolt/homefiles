@@ -8,10 +8,13 @@ set rules = (\
     "instance=RSS class=URxvt tag=rss focus=false"\
     "instance=devel class=URxvt tag=dev switchtag=on"\
     "instance=dox class=URxvt tag=dox index=0 switchtag=on"\
+    "instance=BashBurn class=URxvt tag=burn switchtag=on"\
     "class=Latex-viewer tag=dox index=1 focus=false"\
     "instance=latex-viewer tag=dox index=1 focus=false"\
     "instance=vps class=URxvt tag=vps switchtag=on"\
+    "instance=rpi class=URxvt tag=rpi switchtag=on"\
     "class=LibreOffice tag=lowr"\
+    "class=libreoffice tag=lowr"\
     "class=libreoffice-writer tag=lowr"\
     "class=libreoffice-calc tag=lowr"\
     "class=Qmpdclient tag=music"\
