@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/sh
 
 pgrep -q herbstluftwm || exit 0
 
@@ -14,8 +14,10 @@ get_due_task() {
     echo ${DT}
 }
 
-VERY_URGENT=`get_due_task 0 2`
-URGENT=`get_due_task 2 3`
-LOW_URGENT=`get_due_task 3 7`
-
-/usr/local/bin/herbstclient emit_hook user_taskwarrior ${VERY_URGENT} ${URGENT} ${LOW_URGENT}
+while true; do
+    VERY_URGENT=`get_due_task 0 2`
+    URGENT=`get_due_task 2 3`
+    LOW_URGENT=`get_due_task 3 7`
+    /usr/local/bin/herbstclient emit_hook user_taskwarrior ${VERY_URGENT} ${URGENT} ${LOW_URGENT}
+    sleep 60
+done
