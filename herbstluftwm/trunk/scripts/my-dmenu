@@ -28,7 +28,7 @@ foreach app ($apps:q)
     echo ${app:t} >> ${tmpfile}
 end
 
-set answer="`sort ${tmpfile} | dmenu -i -l 15 -nb blue -sb yellow -sf black`"
+set answer="`sort ${tmpfile} | dmenu -i -l 15 -nb '#222222' -sb yellow -sf black`"
 rm ${tmpfile}
 
 if ( $? == 0 ) then
