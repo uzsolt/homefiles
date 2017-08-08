@@ -17,6 +17,9 @@ mod4 + w ; {g,h,m,f,t,r,u}
   'https://direktnet.raiffeisen.hu/rai/direktnet/home.do',\
   'mail.uzsolt.hu'}
 
+mod4 + g ; {l,m,w}
+  {lowriter,qmpdclient,wesnoth}
+
 mod4 + y ; {r,h,v}
   herbstclient {remove,split horizontal,split vertical}
 
