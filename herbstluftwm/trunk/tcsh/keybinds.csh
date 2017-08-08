@@ -1,7 +1,7 @@
 #!/bin/tcsh
 
-source ${XDG_CONFIG_HOME}/herbstluftwm/conf-keymain.csh
-source ${XDG_CONFIG_HOME}/herbstluftwm/conf-keybinds.csh
+source ${0:h}/conf-keymain.csh
+source ${0:h}/conf-keybinds.csh
 
 herbstclient keyunbind --all
 
