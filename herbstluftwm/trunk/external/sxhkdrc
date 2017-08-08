@@ -10,7 +10,7 @@ mod4 + w ; {g,h,m,f,t,r,s}
   'hup.hu/user/4277/track',\
   'www.bgrg.mozanaplo.hu',\
   'www.facebook.com',\
-  'http://rpi:9091/transmission/web/',\
+  'http://192.168.2.102:9091/transmission/web/',\
   'https://direktnet.raiffeisen.hu/rai/direktnet/home.do'}
 
 mod4 + a ; {v,h,m,g,r}
