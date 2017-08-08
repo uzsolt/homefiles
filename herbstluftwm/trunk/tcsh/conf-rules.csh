@@ -2,6 +2,7 @@ set rules = (\
     "focus=true"\
     "class=Conky manage=off"\
     "class=KeepassX pseudotile=on"\
+    "instance=Navigator class=Firefox tag=web"\
     "instance=FreeBSD class=URxvt tag=bsd switchtag=on"\
     "instance=torrent class=URxvt tag=torrent focus=false"\
     "instance=RSS class=URxvt tag=rss focus=false"\
