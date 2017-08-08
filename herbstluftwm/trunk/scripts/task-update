@@ -4,7 +4,9 @@ export DISPLAY=:0
 
 task_create() {
   shift
-  task $* 2> /dev/null | sed -n '$ s, task.*,,p'
+  ret=`task $* 2> /dev/null | sed -n '$ s, task.*,,p'`
+  [ -z "${ret}" ] && ret=0
+  echo ${ret}
 }
 
 /home/zsolt/.config/herbstluftwm/scripts/herbstluftwm_hook task \
