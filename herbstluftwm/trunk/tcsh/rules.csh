@@ -1,6 +1,6 @@
 #!/bin/tcsh
 
-source ${XDG_CONFIG_HOME}/herbstluftwm/conf-rules.csh
+source {$0:h}/conf-rules.csh
 
 herbstclient unrule -F
 set chains=""
