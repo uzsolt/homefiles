@@ -29,20 +29,20 @@ update_tag() {
 }
 
 msg_focus() {
-  printf "[ %s ]" "${_FOCUS}"
+  printf "^pa(120)^bg(gray)^fg(black) %s ^bg()^fg()" "${_FOCUS}"
 }
 
 msg_frame() {
-  printf "(%s)" "${_FRAME}"
+  printf "^pa(70)^fg(green)(%s)^fg()" "${_FRAME}"
 }
 
 msg_tag() {
-  printf "%s" " ${_TAG}"
+  printf "^fg(yellow)::%s::^fg()" "${_TAG}"
 }
 
 msg_all() {
-  msg_focus ; printf "%s" " "
   msg_tag   ; printf "%s" " "
+  msg_focus ; printf "%s" " "
   msg_frame
   printf "\n"
 }
@@ -76,6 +76,6 @@ handle_event() {
 
 herbstclient --idle | while read line; do
   handle_event ${line}
-done | dzen2 -x 0 -w 1366 -h 18 -fn "terminus:size=8" -y 750 -e 'button2=;'
+done | dzen2 -x 0 -w 1366 -h 18 -fn "terminus:size=8" -y 750 -e 'button2=;' -ta l
 #-x 850 -w 666 -h 18 -fn "terminus:size=8"
 
