@@ -11,6 +11,6 @@ set daemons = (\
 )
 
 foreach dmn (${daemons:q})
-    echo /usr/sbin/daemon ${dmn:h:r} -p ~/logfiles/hlwm-${dmn:h:e}.pid ${0:h}/../scripts/${dmn:t}
+    /usr/sbin/daemon ${dmn:h:r} -p ~/logfiles/hlwm-${dmn:h:e}.pid ${0:h}/../scripts/${dmn:t}
 end
 
