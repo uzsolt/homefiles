@@ -96,6 +96,10 @@ KC_VOLUME_HOTKEY="${Winkey}+v"
 KC_VOLUME_q="spawn mixer vol +5"
 KC_VOLUME_a="spawn mixer vol -5"
 
+KC_INFO="info"
+KC_INFO_HOTKEY="${Winkey}+i"
+KC_INFO_n="spawn dzen-calendar"
+
 KEYCHAINS=`set | sed -n "/^KC_/ s@KC_\([^_=]*\).*@\1@p" | uniq`
 
 for kc in ${KEYCHAINS}; do
