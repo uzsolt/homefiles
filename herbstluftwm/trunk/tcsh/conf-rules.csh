@@ -4,6 +4,7 @@ set rules = (\
     "class=KeepassX pseudotile=on"\
     "instance=Navigator class=Firefox tag=web"\
     "class=Chrome tag=web"\
+    "class=Thunderbird tag=email"\
     "instance=FreeBSD class=URxvt tag=bsd switchtag=on"\
     "instance=torrent class=URxvt tag=torrent focus=false"\
     "instance=RSS class=URxvt tag=rss focus=false"\
