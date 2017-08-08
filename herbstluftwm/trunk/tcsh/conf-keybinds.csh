@@ -1,7 +1,6 @@
 set keybinds = (\
     "$Mod-Shift-q spawn ${HLWM_DIR}/scripts/hlwm_quit.sh"\
     "$Mod-Shift-r reload"\
-    "$Mod-Shift-c close"\
     "$Mod-Return spawn urxvt"\
     "$Mod-s floating toggle"\
     "$Mod-p pseudotile toggle"\

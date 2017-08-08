@@ -1,5 +1,6 @@
 set keychains = (\
     "${Winkey}+a/layout.kc_layout"\
+    "${Winkey}+w/open web.kc_web"\
     "${Winkey}+f/move frame.kc_frame"\
     "${Winkey}+h/herbst.kc_herbst"\
     "${Winkey}+i/info.kc_info"\
@@ -10,8 +11,8 @@ set keychains = (\
     "${Winkey}+s/split.kc_split"\
     "${Winkey}+t/change tag.kc_changetag"\
     "${Winkey}+v/volume.kc_vol"\
-    "${Winkey}+w/open web.kc_web"\
     "${Winkey}+x/terminal.kc_term"\
+    "${Winkey}+c/client.kc_client"\
 )
 
 set kc_frame = (\
@@ -75,6 +76,7 @@ set kc_vol = (\
 
 set browser="spawn /home/zsolt/bin/mybrowser"
 set kc_web = (\
+    "'b/${browser} http://uzsolt.hu/online-bookmarks/sidebar.php'"\
     "'g/${browser} mail.google.com/mail/u/0/#search/l%3Aunread'"\
     "'h/${browser} hup.hu/user/4277/track'"\
     "'m/${browser} www.bgrg.mozanaplo.hu'"\
@@ -83,14 +85,20 @@ set kc_web = (\
     "'r/${browser} https://direktnet.raiffeisen.hu/rai/direktnet/home.do'"\
 )
 
+#; source-file /home/zsolt/.config/tmux/tmux-burn.conf'"\
 set urxvt="spawn urxvt-config-sh"
 set kc_term = (\
     "'b/${urxvt} freebsd'"\
     "'d/${urxvt} dox'"\
-    "'n/${urxvt} bashburn tmux -L burn -2 new-session; source-file /home/zsolt/.config/tmux/tmux-burn.conf'"\
+    "'n/${urxvt} bashburn tmux -L burn -2 source-file /home/zsolt/.config/tmux/tmux-burn.conf'"\
     "'v/${urxvt} devel'"\
     "'x/${urxvt} main'"\
     "'p/${urxvt} vps ssh uzsolt.hu'"\
     "'i/${urxvt} rpi ssh 192.168.2.102'"\
+)
+
+set kc_client = (\
+    "'c/close'"\
+    "'x/close'"\
 )
 
