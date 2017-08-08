@@ -11,12 +11,12 @@ if [ $? -eq 0 ]; then
     # text
     t=`echo ${ret} | sed 's,.*|\(.*\)|,\1,'`
     {
-        echo "net kapcsolat ellenőrzése..."
+        echo "${DZ_INF}net kapcsolat ellenőrzése..."
         ping -t 3 -c 2 ${PING_HOST} > /dev/null
         if [ $? -eq 0 ]; then
-            echo "fordítás folyamatban..."
+            echo "${DZ_INF}fordítás folyamatban..."
             forditas=`trans -b ${d} ${t}`
-            echo "${t}: ${forditas}"
+            echo "${DZ_RESULT}${t}: ${forditas}"
         else
             echo "${DZ_ERR}[[ nincs net ]]"
         fi
