@@ -29,11 +29,12 @@ TEXT
 ${color green}${cpu}%${goto 35}${color grey}${cpugraph 10,20 00ff00 ff0000 -t} \
 ${freq}MHz \
 ${goto 110}${acpitemp}C \
-${goto 140}${color yellow}$loadavg \
+${goto 140}${color yellow}${loadavg 1} ${loadavg 2} \
 ${color lightblue}\
-${downspeedf wlan0}${goto 260}\
+${downspeedf wlan0}${goto 240}\
 ${downspeedgraph wlan0 10,20 00ff00 ff0000 1000 -t} \
-${time %H:%M, %b. %d, %a.} \
+${if_match ${swapperc}>0}${color red}|Sw:${swapperc}%|${endif}\
+${color gray}${time %H:%M, %b. %d, %a.} \
 ${if_match ${top cpu 1}>20.0}${color red}${top cpu 1}% ${top name 1}${endif} \
 ${goto 600}${color green}${desktop_name} \
 ${template0 650 M /home/zsolt/logfiles/gmail-unread-count} \
