@@ -86,5 +86,6 @@ rm -f /home/zsolt/.config/keepassx/passwords.kdb.lock && keepassx -min &
 conky -d -c /home/zsolt/.config/herbstluftwm/external/conkyrc &
 stalonetray -c /home/zsolt/.config/herbstluftwm/external/stalonetray &
 ~/.config/herbstluftwm/scripts/dzen.sh &
+dunst -conf ~/.config/herbstluftwm/external/dunstrc &
 (sleep 2 ; /usr/local/bin/speedcrunch) &
 
