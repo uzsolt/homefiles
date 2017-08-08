@@ -62,7 +62,7 @@ hc rule \
 hc rule \
     class=SDLApp \
     tag=game
-hc rule
+hc rule \
     class=Cdcat \
     tag=utils
 
