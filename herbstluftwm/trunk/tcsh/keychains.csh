@@ -1,8 +1,8 @@
 #!/bin/tcsh
 
-source ${XDG_CONFIG_HOME}/herbstluftwm/conf-keymain.csh
-source ${XDG_CONFIG_HOME}/herbstluftwm/conf-keychains.csh
-source ${XDG_CONFIG_HOME}/herbstluftwm/conf-tags.csh
+source ${0:h}/conf-keymain.csh
+source ${0:h}/conf-keychains.csh
+source ${0:h}/conf-tags.csh
 
 set kc_changetag=()
 set kc_movetag=()
