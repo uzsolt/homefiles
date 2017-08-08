@@ -10,7 +10,7 @@ display_info() {
         length=`echo ${LINE} | wc -m`
         [ ${max} -lt ${length} ] && max=${length}
     } > ${tmpfile}
-    width=`echo "${max}*9" | bc`
+    width=`echo "${max}*12" | bc`
     {
         echo ${TITLE}
         cat ${tmpfile} 
