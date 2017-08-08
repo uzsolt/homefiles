@@ -19,12 +19,13 @@ mod4 + a ; {v,h,m,g,r}
 mod4 + p ; {space,n,s,p}
   mpc {toggle,next,stop,play}
 
-mod4 + l ; {a,c,t,m}
+mod4 + l ; {a,c,t,m,h}
   {\
   dmenu_run -l 25,\
   ~/.config/herbstluftwm/scripts/change_client.sh,\
   ~/.config/herbstluftwm/scripts/change_tag.sh,\
-  ~/.config/herbstluftwm/scripts/mpd-playlist.sh\
+  ~/.config/herbstluftwm/scripts/mpd-playlist.sh,\
+  ~/bin/task-notify\
   }
 
 mod4 + {0-5}
