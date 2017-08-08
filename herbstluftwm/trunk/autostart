@@ -1,26 +1,24 @@
-#!/bin/sh
+#!/bin/tcsh
 
 # this is a simple config for herbstluftwm
 
-. ~/.config/herbstluftwm/include.sh
-
-hc emit_hook reload
+herbstclient emit_hook reload
 # dunst &
 
-hc unlock
+herbstclient unlock
 
-hc pad 0 20 0 0
+herbstclient pad 0 20 0 0
 
-${HLWM_DIR}/tcsh/tags.csh
-${HLWM_DIR}/tcsh/keybinds.csh
-${HLWM_DIR}/tcsh/keychains.csh
-${HLWM_DIR}/tcsh/theme.csh
+${0:h}/tcsh/tags.csh
+${0:h}/tcsh/keybinds.csh
+${0:h}/tcsh/keychains.csh
+${0:h}/tcsh/theme.csh
 
 # mouse
-hc mouseunbind --all
-hc mousebind $Mod-Button1 move
-hc mousebind $Mod-Button2 resize
-hc mousebind $Mod-Button3 zoom
+herbstclient mouseunbind --all
+herbstclient mousebind $Mod-Button1 move
+herbstclient mousebind $Mod-Button2 resize
+herbstclient mousebind $Mod-Button3 zoom
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
@@ -37,8 +35,8 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 #    $panel $monitor &
 #done
 
-${HLWM_DIR}/tcsh/rules.csh
+${0:h}/tcsh/rules.csh
 
-${HLWM_DIR}/external/autorun.sh
-${HLWM_DIR}/external/daemons.csh
+${0:h}/external/autorun.sh
+${0:h}/external/daemons.csh
 
