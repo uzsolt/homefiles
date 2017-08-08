@@ -17,7 +17,7 @@ set rules = (\
     "class=Cdcat tag=utils"\
     "windowtype=_NET_WM_WINDOW_TYPE_DIALOG focus=on pseudotile=on"\
     "windowtype=_NET_WM_WINDOW_TYPE_UTILITY manage=off focus=on"\
-    "windowtype=_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK) manage=off"\
+    "windowtype~_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK) manage=off"\
 )
 
 
