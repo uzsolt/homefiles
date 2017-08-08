@@ -3,12 +3,12 @@ export PATH=/usr/bin:/usr/local/bin
 LOGFILE=/home/zsolt/logfiles/newsbeuter-unread-items
 DBFILE=/home/zsolt/.config/newsbeuter/cache.db
 
-RET=`sqlite3 ${DBFILE} "SELECT COUNT(*) FROM rss_item WHERE unread=1; \
-    SELECT
-        rss_feed.title,
-        GROUP_CONCAT(rss_item.title,'@')
-    FROM rss_item \
-    JOIN rss_feed ON rss_feed.rssurl=rss_item.feedurl \
-    WHERE unread=1 \
-    GROUP BY rss_feed.rssurl;" 2>/dev/null` || exit 0
+RET=`sqlite3 ${DBFILE} "SELECT COUNT(*) FROM rss_item WHERE unread=1;"`
+#    SELECT
+#        rss_feed.title,
+#        GROUP_CONCAT(rss_item.title,'@')
+#    FROM rss_item \
+#    JOIN rss_feed ON rss_feed.rssurl=rss_item.feedurl \
+#    WHERE unread=1 \
+#    GROUP BY rss_feed.rssurl;" 2>/dev/null` || exit 0
 /home/zsolt/.config/herbstluftwm/scripts/herbstluftwm_hook rss ${RET}
