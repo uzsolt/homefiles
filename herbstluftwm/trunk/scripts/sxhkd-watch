@@ -1,0 +1,13 @@
+#!/bin/sh
+
+FIFO=~/.config/herbstluftwm/run/sxhkd.fifo
+
+cat ${FIFO} | while read line; do
+  case ${line} in
+    H*)
+      herbstclient emit_hook chord_enter
+      sleep 0.3
+      herbstclient emit_hook chord_leave
+      ;;
+  esac
+done

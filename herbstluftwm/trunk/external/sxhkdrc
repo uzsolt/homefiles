@@ -1,0 +1,54 @@
+mod4 + {m,t} ; {x,w,d,r,v,p,u,l,i,s}
+  herbstclient {move,use} {term,web,dox,rss,dev,vps,util,lowr,rpi,scratchpad}
+
+mod4 + x ; {x,d,p}
+  /home/zsolt/bin/urxvt-config-sh {main,dox,vps ssh uzsolt.hu}
+
+mod4 + w ; {g,h,m,f,t,r,s}
+  /home/zsolt/bin/mybrowser {\
+  "mail.google.com/mail/u/0/#search/l%3Aunread",\
+  'hup.hu/user/4277/track',\
+  'www.bgrg.mozanaplo.hu',\
+  'www.facebook.com',\
+  'http://rpi:9091/transmission/web/',\
+  'https://direktnet.raiffeisen.hu/rai/direktnet/home.do'}
+
+mod4 + a ; {v,h,m,g,r}
+  herbstclient set_layout {vertical,horizontal,max,grid}
+
+mod4 + p ; {space,n,s,p}
+  mpc {toggle,next,stop,play}
+
+mod4 + l ; {a,c,t}
+  {\
+  dmenu_run -l 25,\
+  ~/.config/herbstluftwm/scripts/change_client.sh,\
+  ~/.config/herbstluftwm/scripts/change_tag.sh\
+  }
+
+mod4 + {0-5}
+  herbstclient focus_nth {0-5}
+
+mod4 + f ; {a,s,q,y}
+  herbstclient shift {left,right,up,down}
+
+mod4 + s ; 2
+  xdotool click 2
+
+mod4 + c ; x
+  herbstclient close
+
+alt+shift+q
+  ~/.config/herbstluftwm/scripts/hlwm_quit.sh
+
+alt+Tab
+  herbstclient cycle_frame
+
+mod4+Tab
+  herbstclient cycle
+
+alt+Escape
+  herbstclient use_previous
+
+mod4 + q
+  herbstclient chain X cycle_monitor X raise_monitor
