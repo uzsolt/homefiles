@@ -66,10 +66,10 @@ ${mixerbar}${voffset 5}${offset -25}${mixerbar pcm}\
 ${voffset -3}${offset 5}\
 ${if_mpd_playing}\
 ${color lightblue}\
-${if_match "${mpd_status}" == "Paused" }[[ paused ]]${else}${scroll 35 2 ${mpd_smart}}${endif}\
-${goto 840}\
+${if_match "${mpd_status}" == "Paused" }[[ paused ]]${else}${scroll 60 2 ${mpd_smart}}${endif}\
+${goto 900}\
 ${mpd_bar 5,40}\
-${goto 895}\
+${goto 950}\
 ${mpd_elapsed}/${mpd_length}\
 ${endif}\
 ${goto 1100}\
