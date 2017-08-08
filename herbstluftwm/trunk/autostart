@@ -48,6 +48,7 @@ herbstclient rule title="vps" instance="sterm" tag="vps" switchtag=on
 herbstclient rule title="devel" instance="sterm" tag="dev" switchtag=on
 herbstclient rule instance="speedcrunch" tag="scratchpad" focus=false
 herbstclient rule title"~"".*[wW]esnoth.*" instance="SDL_App" tag=game
+herbstclient rule instance="cdcat" tag=util
 
 herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_DIALOG" focus=on pseudotile=on
 herbstclient rule windowtype="_NET_WM_WINDOW_TYPE_UTILITY" manage=off focus=on
