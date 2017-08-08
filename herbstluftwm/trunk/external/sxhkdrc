@@ -2,7 +2,7 @@ mod4 + {m,t} ; {x,w,d,r,v,p,u,l,i,s,g}
   herbstclient {move,use} {term,web,dox,rss,dev,vps,util,lowr,rpi,scratchpad,game}
 
 mod4 + x ; {x,d,p}
-  /home/zsolt/bin/urxvt-config-sh {main,dox,vps ssh uzsolt.hu}
+  /home/zsolt/bin/myterminal {main,dox,vps ssh uzsolt.hu}
 
 mod4 + w ; {g,h,m,f,t,r,s}
   /home/zsolt/bin/mybrowser {\
@@ -19,11 +19,12 @@ mod4 + a ; {v,h,m,g,r}
 mod4 + p ; {space,n,s,p}
   mpc {toggle,next,stop,play}
 
-mod4 + l ; {a,c,t}
+mod4 + l ; {a,c,t,m}
   {\
   dmenu_run -l 25,\
   ~/.config/herbstluftwm/scripts/change_client.sh,\
-  ~/.config/herbstluftwm/scripts/change_tag.sh\
+  ~/.config/herbstluftwm/scripts/change_tag.sh,\
+  ~/.config/herbstluftwm/scripts/mpd-playlist.sh\
   }
 
 mod4 + {0-5}
