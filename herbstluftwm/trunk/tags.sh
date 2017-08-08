@@ -2,8 +2,6 @@
 
 . ~/.config/herbstluftwm/include.sh
 
-#TAG_NAMES=( term web rss dox torrent dev bsd lowr loimp music )
-
 HL_LAYOUT_term='(clients max:0)'
 HL_LAYOUT_web='(clients max:0)'
 HL_LAYOUT_rss='(clients max:0)'
