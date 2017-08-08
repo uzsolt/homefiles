@@ -29,6 +29,10 @@ update_tag() {
   _TAG="$1"
 }
 
+msg_date() {
+  printf '^pa(1200)^fg(white)%s^fg()' "`date +'%H:%M (%b. %d., %a)'`"
+}
+
 msg_focus() {
   printf "^pa(120)^bg(gray)^fg(black) %s ^bg()^fg()" "${_FOCUS}"
 }
@@ -45,6 +49,7 @@ msg_all() {
   msg_tag   ; printf "%s" " "
   msg_focus ; printf "%s" " "
   msg_frame
+  msg_date
   printf "\n"
 }
 
@@ -52,6 +57,8 @@ handle_event() {
   event=$1
   shift
   case ${event} in
+    date)
+      ;;
     tag_changed)
       update_tag $*
       ;;
