@@ -185,20 +185,24 @@ herbstclient --idle | while read line; do
             set_current_focus ${ARGS[@]:2}
             set_current_frame
             ;;
+        user_battery)
+            set_battery_status ${ARGS[1]}
+            set_battery_life ${ARGS[2]}
+            ;;
+        user_battery_life)
+            set_battery_life ${ARGS[1]}
+            ;;
+        user_battery_status)
+            set_battery_status ${ARGS[1]}
+            ;;
         user_newsbeuter)
             set_unread_items
             ;;
         user_gmail)
             set_unread_emails
             ;;
-        user_battery_status)
-            set_battery_status ${ARGS[1]}
-            ;;
         user_swap)
             set_swap_status ${ARGS[1]}
-            ;;
-        user_battery_life)
-            set_battery_life ${ARGS[1]}
             ;;
         user_taskwarrior)
             set_taskwarrior ${ARGS[1]} ${ARGS[2]} ${ARGS[3]}
