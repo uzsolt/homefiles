@@ -13,6 +13,7 @@ set apps = ( \
     "dosbox/DOSbox" \
     "freeciv/FreeCiv" \
     "cdcat/CdCat" \
+    "openttd/OpenTTD" \
 )
 
 set tmpfile=`mktemp -t hlwm-dmenu`
