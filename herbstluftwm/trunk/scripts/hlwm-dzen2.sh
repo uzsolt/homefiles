@@ -72,7 +72,7 @@ function set_taglist() {
 }
 
 function set_unread_emails() {
-    UNREAD_EMAILS=$(grep "<entry>" ~/logfiles/gmail-unread | wc -l | sed "s@^ *@@")
+    UNREAD_EMAILS=$(head -n 1 ~/logfiles/gmail-unread-count)
 }
 
 function set_unread_items() {
