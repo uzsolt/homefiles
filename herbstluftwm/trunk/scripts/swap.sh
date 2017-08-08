@@ -1,5 +1,7 @@
 #!/usr/local/bin/bash
 
+pgrep -q herbstluftwm || exit 0
+
 export DISPLAY=:0
 LOGFILE=$HOME/logfiles/hlwm-swap
 
