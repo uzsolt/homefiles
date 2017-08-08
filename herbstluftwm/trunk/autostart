@@ -1,5 +1,9 @@
 #!/bin/tcsh
 
+herbstclient keyunbind --all
+herbstclient mouseunbind --all
+herbstclient unrule --all
+
 herbstclient emit_hook reload
 herbstclient unlock
 herbstclient pad 0 20 0 0
@@ -13,9 +17,8 @@ herbstclient use term
 #${0:h}/tcsh/theme.csh
 
 # mouse
-herbstclient mouseunbind --all
 # herbstclient mousebind $Mod-Button1 move
-# herbstclient mousebind $Mod-Button2 resize
+herbstclient mousebind Mod1-Button2 resize
 # herbstclient mousebind $Mod-Button3 zoom
 
 herbstclient set tree_style '╾│ ├└╼─┐'
