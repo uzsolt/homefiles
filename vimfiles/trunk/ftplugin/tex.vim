@@ -43,6 +43,7 @@ let &cpo = s:save_cpo
 
 se textwidth=75
 
+map <buffer> @a :TTemplate alap<CR><C-J>
 map <buffer> @d :TTemplate dolgozat<CR><C-J>
 map <buffer> @f :TTemplate feladatsor<CR><C-J>
 map <buffer> @o :TTemplate osszefoglalo<CR><C-J>
