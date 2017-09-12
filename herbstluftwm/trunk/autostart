@@ -83,7 +83,7 @@ sxhkd -c ~/.config/herbstluftwm/external/sxhkdrc -s ~/.config/herbstluftwm/run/s
 
 wmname LG3D
 rm -f /home/zsolt/.config/keepassx/passwords.kdb.lock && keepassx -min &
-conky -d -c /home/zsolt/.config/herbstluftwm/external/conkyrc &
+LC_ALL=C conky -d -c /home/zsolt/.config/herbstluftwm/external/conkyrc &
 stalonetray -c /home/zsolt/.config/herbstluftwm/external/stalonetray &
 ~/.config/herbstluftwm/scripts/dzen.sh &
 ~/.config/herbstluftwm/scripts/notify_mount.sh &
