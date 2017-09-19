@@ -45,9 +45,6 @@ set mouse=r
 
 se laststatus=2
 
-map <C-G>s :Gina status<CR>
-map <C-G>c :Gina commit<CR>
-
 function! Browser()
     let line = getline(".")
     let line = matchstr(line,"\%(http://\|www\.\)[^ ,;\t]*")
