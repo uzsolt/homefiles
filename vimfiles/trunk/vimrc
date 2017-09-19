@@ -67,3 +67,5 @@ let g:netrw_dirhistmax=0
 
 " Ruby syntax miatt
 set re=1
+
+set noeb vb t_vb=
