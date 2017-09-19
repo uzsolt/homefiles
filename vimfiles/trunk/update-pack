@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for d in pack/*; do (
+  echo ">>> ${d}"
+  cd ${d}
+  git pull
+  echo
+) done
+
