@@ -1,9 +1,12 @@
 #!/bin/sh
 
-for d in pack/*; do (
-  echo ">>> ${d}"
-  cd ${d}
-  git pull
+while read line; do
+  dir=`echo ${line} | sed "s,.*/\([^/]*\),pack/\1,"`
+  if [ -d ${dir} ]; then
+    svn update ${dir}
+  else
+    svn checkout ${line}/trunk ${dir}
+    ln -s . ${dir}/start
+  fi
   echo
-) done
-
+done < pack-list
