@@ -49,7 +49,7 @@ map <buffer> @f :TTemplate feladatsor<CR><C-J>
 map <buffer> @o :TTemplate osszefoglalo<CR><C-J>
 
 " questions - exsheets package
-let g:Tex_Env_pontozas="\\begin{pontozas}\<CR>\\pontoz{<++>}{<++>}{<++>}\<CR>\\end{pontozas}"
+let g:Tex_Env_pontozas="\\begin{pontozas}\<CR>\\pontoz{<++>}{<++>}{<++>}\<CR><++>\\end{pontozas}"
 let g:Tex_Env_questionpont="\\begin{question}{<++>}\<CR><++>\<CR>\\end{question}\<CR><++>"
 let g:Tex_Env_question="\\begin{question}\<CR><++>\<CR>\\end{question}\<CR><++>"
 let g:Tex_Env_tasks="\\begin{tasks}\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>"
@@ -63,6 +63,9 @@ let g:Tex_Com_Task="\\task\\subpoints{<++>} <++> "
 let g:Tex_Com_vary="\\vary{<++>}{<++>}"
 let g:Tex_Com_Vary="\\vary{\<CR><++>\<CR>}{\<CR><++>\<CR>}"
 let g:Tex_Com_vegeredmeny="\\vegeredmeny{<++>}<++>"
+
+let g:Tex_ItemStyle_pontozas=g:Tex_Com_pontoz
+
 call IMAP('??',g:Tex_Env_questionpont,'tex')
 call IMAP('?q',g:Tex_Env_question,'tex')
 call IMAP('?t',g:Tex_Env_tasks,'tex')
