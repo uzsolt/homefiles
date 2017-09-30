@@ -55,21 +55,29 @@ let g:Tex_Env_question="\\begin{question}\<CR><++>\<CR>\\end{question}\<CR><++>"
 let g:Tex_Env_tasks="\\begin{tasks}\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>"
 let g:Tex_Env_taskspont="\\begin{tasks}\<CR>\\task\\subpoints{<++>} <++>\<CR>\\end{tasks}\<CR><++>"
 let g:Tex_Env_mpc="\\begin{tasks}[style=multiplechoice](<++>)\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>"
+let g:Tex_Com_hely="\\hely{<++>cm}<++>"
+let g:Tex_Com_pontoz="\\pontoz{<+leírás+>}{<+pontszám+>}{<+megjegyzés+>}\<CR><++>"
+let g:Tex_Com_subpoints="\\subpoints{<++>}\<CR><++>"
+let g:Tex_Com_task="\\task "
+let g:Tex_Com_Task="\\task\\subpoints{<++>} <++> "
+let g:Tex_Com_vary="\\vary{<++>}{<++>}"
+let g:Tex_Com_Vary="\\vary{\<CR><++>\<CR>}{\<CR><++>\<CR>}"
+let g:Tex_Com_vegeredmeny="\\vegeredmeny{<++>}<++>"
 call IMAP('??',g:Tex_Env_questionpont,'tex')
 call IMAP('?q',g:Tex_Env_question,'tex')
 call IMAP('?t',g:Tex_Env_tasks,'tex')
 call IMAP('?T',g:Tex_Env_taskspont,'tex')
 call IMAP('?c',g:Tex_Env_mpc,'tex')
-call IMAP('?p',"\\task ",'tex')
-call IMAP('?P',"\\task\\subpoints{<++>} <++>",'tex')
+call IMAP('?p',g:Tex_Com_task,'tex')
+call IMAP('?P',g:Tex_Com_Task,'tex')
 call IMAP('?s',g:Tex_Env_pontozas,'tex')
-call IMAP('?r',"\\pontoz{<+leírás+>}{<+pontszám+>}{<+megjegyzés+>}\<CR><++>",'tex')
-call IMAP('?j',"\\subpoints{<++>}\<CR><++>",'tex')
-call IMAP('?e',"\\hely{<++>cm}<++>",'tex')
+call IMAP('?e',g:Tex_Com_hely,'tex')
+call IMAP('?r',g:Tex_Com_pontoz,'tex')
+call IMAP('?j',g:Tex_Com_subpoints,'tex')
+call IMAP('?v',g:Tex_Com_vary,"tex")
+call IMAP('?V',g:Tex_Com_Vary,"tex")
+call IMAP('.v',Tex_Com_vegeredmeny,"tex")
 call IMAP('?o',"\\ora{<++>}{<++>}\<CR><++>","tex")
-call IMAP('?v',"\\vary{<++>}{<++>}","tex")
-call IMAP('?V',"\\vary{\<CR><++>\<CR>}{\<CR><++>\<CR>}","tex")
-call IMAP('.v',"\\vegeredmeny{<++>}<++>","tex")
 
 call IMAP('.->',"\\rightarrow ",'tex')
 call IMAP('.=>',"\\Rightarrow ",'tex')
