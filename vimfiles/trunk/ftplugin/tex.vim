@@ -49,14 +49,20 @@ map <buffer> @f :TTemplate feladatsor<CR><C-J>
 map <buffer> @o :TTemplate osszefoglalo<CR><C-J>
 
 " questions - exsheets package
-call IMAP('??',"\\begin{question}{<++>}\<CR><++>\<CR>\\end{question}\<CR><++>",'tex')
-call IMAP('?q',"\\begin{question}\<CR><++>\<CR>\\end{question}\<CR><++>",'tex')
-call IMAP('?t',"\\begin{tasks}\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>",'tex')
-call IMAP('?T',"\\begin{tasks}\<CR>\\task\\subpoints{<++>} <++>\<CR>\\end{tasks}\<CR><++>",'tex')
-call IMAP('?c',"\\begin{tasks}[style=multiplechoice](<++>)\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>",'tex')
+let g:Tex_Env_pontozas="\\begin{pontozas}\<CR>\\pontoz{<++>}{<++>}{<++>}\<CR>\\end{pontozas}"
+let g:Tex_Env_questionpont="\\begin{question}{<++>}\<CR><++>\<CR>\\end{question}\<CR><++>"
+let g:Tex_Env_question="\\begin{question}\<CR><++>\<CR>\\end{question}\<CR><++>"
+let g:Tex_Env_tasks="\\begin{tasks}\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>"
+let g:Tex_Env_taskspont="\\begin{tasks}\<CR>\\task\\subpoints{<++>} <++>\<CR>\\end{tasks}\<CR><++>"
+let g:Tex_Env_mpc="\\begin{tasks}[style=multiplechoice](<++>)\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>"
+call IMAP('??',g:Tex_Env_questionpont,'tex')
+call IMAP('?q',g:Tex_Env_question,'tex')
+call IMAP('?t',g:Tex_Env_tasks,'tex')
+call IMAP('?T',g:Tex_Env_taskspont,'tex')
+call IMAP('?c',g:Tex_Env_mpc,'tex')
 call IMAP('?p',"\\task ",'tex')
 call IMAP('?P',"\\task\\subpoints{<++>} <++>",'tex')
-call IMAP('?s',"\\begin{pontozas}\<CR><++>\<CR>\\end{pontozas}\<CR><++>",'tex')
+call IMAP('?s',g:Tex_Env_pontozas,'tex')
 call IMAP('?r',"\\pontoz{<+leírás+>}{<+pontszám+>}{<+megjegyzés+>}\<CR><++>",'tex')
 call IMAP('?j',"\\subpoints{<++>}\<CR><++>",'tex')
 call IMAP('?e',"\\hely{<++>cm}<++>",'tex')
