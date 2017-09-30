@@ -49,7 +49,7 @@ map <buffer> @f :TTemplate feladatsor<CR><C-J>
 map <buffer> @o :TTemplate osszefoglalo<CR><C-J>
 
 " questions - exsheets package
-let g:Tex_Env_pontozas="\\begin{pontozas}\<CR>\\pontoz{<++>}{<++>}{<++>}\<CR><++>\\end{pontozas}"
+let g:Tex_Env_pontozas="\\begin{pontozas}\<CR>\\pontoz{<++>}{<++>}{<++>}\<CR><++>\<CR>\\end{pontozas}"
 let g:Tex_Env_questionpont="\\begin{question}{<++>}\<CR><++>\<CR>\\end{question}\<CR><++>"
 let g:Tex_Env_question="\\begin{question}\<CR><++>\<CR>\\end{question}\<CR><++>"
 let g:Tex_Env_tasks="\\begin{tasks}\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>"
