@@ -80,6 +80,7 @@ call IMAP('//',"\\frac{<++>}{<++>}",'tex')
 
 " siunitx package
 call IMAP('.si','\SI{<++>}{<++>}<++>','tex')
+call IMAP('.n','\num{<++>}<++>','tex')
 call IMAP('.c','\celsius','tex')
 call IMAP('.p','\per ','tex')
 call IMAP('.it',"\\begin{itemize}\<CR>\\item <++>\<CR>\\end{itemize}\<CR><++>",'tex')
