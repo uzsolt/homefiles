@@ -55,6 +55,7 @@ let g:Tex_Env_question="\\begin{question}\<CR><++>\<CR>\\end{question}\<CR><++>"
 let g:Tex_Env_tasks="\\begin{tasks}\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>"
 let g:Tex_Env_taskspont="\\begin{tasks}\<CR>\\task\\subpoints{<++>} <++>\<CR>\\end{tasks}\<CR><++>"
 let g:Tex_Env_mpc="\\begin{tasks}[style=multiplechoice](<++>)\<CR>\\task <++>\<CR>\\end{tasks}\<CR><++>"
+let g:Tex_Com_frac="\\frac{<++>}{<++>}<++>"
 let g:Tex_Com_hely="\\hely{<++>cm}<++>"
 let g:Tex_Com_pontoz="\\pontoz{<+leírás+>}{<+pontszám+>}{<+megjegyzés+>}\<CR><++>"
 let g:Tex_Com_subpoints="\\subpoints{<++>}\<CR><++>"
@@ -93,7 +94,7 @@ call IMAP('.N',"\\mathbb{N}",'tex')
 call IMAP('.D',"\\displaystyle ",'tex')
 call IMAP('.T',"\\text{<++>}<++> ",'tex')
 
-call IMAP('//',"\\frac{<++>}{<++>}",'tex')
+call IMAP('//',g:Tex_Com_frac,'tex')
 
 " siunitx package
 call IMAP('.si','\SI{<++>}{<++>}<++>','tex')
