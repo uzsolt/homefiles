@@ -41,3 +41,21 @@ git rebase --onto master --root
 msg "git svn dcommit"
 git svn dcommit -q
 
+msg "setting times"
+cd /
+rm -rf ${TMPDIR}
+echo '#!/bin/sh' > ${SVNDIR}/hooks/pre-revprop-change
+chmod +x ${SVNDIR}/hooks/pre-revprop-change
+
+mkdir -p ${TMPDIR}
+git clone file://${GITREPO} ${TMPDIR}/git
+${SVN} checkout file://${SVNDIR} ${TMPDIR}/svn
+
+cd ${TMPDIR}/git
+rev=2
+git log --reverse --date=iso-strict | sed -n '/Date:/ s,Date: *\(.*\)+..:..,\1.000000Z,p' | while read line; do
+  ${SVN} propset -r${rev} --revprop svn:date "${line}" ${TMPDIR}/svn
+  rev=$((rev+1))
+done
+
+rm -rf ${TMPDIR}
