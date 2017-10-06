@@ -18,6 +18,7 @@ _P_UZSOLT=1040
 _P_DATE=1100
 _P_TASK1=1250
 _P_TASK2=1280
+_P_CHORD=1310
 
 _BC_DEFAULT="#111111"
 _FC_DATE="white"
@@ -38,6 +39,8 @@ _FC_TASK2="yellow"
 _BC_TASK2="${_BC_DEFAULT}"
 _FC_UZSOLT="grey"
 _BC_UZSOLT="${_BC_DEFAULT}"
+_FC_CHORD="black"
+_BC_CHORD="yellow"
 
 _TITLE_SED='s@ - Mozilla Firefox@@'
 
@@ -89,6 +92,10 @@ msg() {
     ${m_pos} ${m_fgcolor} ${m_bgcolor} "${m_msg}"
 }
 
+msg_chord() {
+  [ -n "${_INCHORD}" ] && msg "${_P_CHORD}" "${_FC_CHORD}" "${_BC_CHORD}" "CH"
+}
+
 msg_date() {
   msg "${_P_DATE}" "${_FC_DATE}" "${_BC_DATE}" "`date +'%H:%M (%b. %d., %a)'`"
 }
@@ -127,6 +134,7 @@ msg_uzsolt() {
 }
 
 msg_all() {
+  msg_chord
   msg_date
   msg_focus
   msg_frame
@@ -164,10 +172,10 @@ handle_event() {
       update_focus $*
       ;;
     chord_enter)
-      echo -n CHORD
+      _INCHORD="x"
       ;;
     chord_leave)
-      echo -n LEAVE CHORD
+      _INCHORD=""
       ;;
   esac
   msg_all
