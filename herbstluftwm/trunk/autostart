@@ -79,7 +79,10 @@ herbstclient mousebind Mod1-Button2 resize
 herbstclient set tree_style '╾│ ├└╼─┐'
 herbstclient unlock
 
-sxhkd -c ~/.config/herbstluftwm/external/sxhkdrc -s ~/.config/herbstluftwm/run/sxhkd.fifo > ~/logfiles/sxhkd &
+SXHKD_FIFO=~/.config/herbstluftwm/run/sxhkd.fifo
+mkdir -p ${SXHKD_FIFO%/*}
+[ -p "${SXHKD_FIFO}" ] || mkfifo ${SXHKD_FIFO}
+sxhkd -c ~/.config/herbstluftwm/external/sxhkdrc -s ~/.config/herbstluftwm/run/sxhkd.fifo -r ~/logfiles/sxhkd &
 
 wmname LG3D
 rm -f /home/zsolt/.config/keepassx/passwords.kdb.lock && keepassx -min &
