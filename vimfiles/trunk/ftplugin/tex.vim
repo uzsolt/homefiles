@@ -6,6 +6,9 @@
 "  URL:		http://www.vim.org/script.php?script_id=411
 " Only do this when not done yet for this buffer.
 
+let g:Tex_Leader = "'"
+let g:Tex_Leader2 = ':'
+
 "colorscheme molokai
 if exists("b:did_ftplugin")
   finish
@@ -83,6 +86,7 @@ call IMAP('?V',g:Tex_Com_Vary,"tex")
 call IMAP('.v',Tex_Com_vegeredmeny,"tex")
 call IMAP('?o',"\\ora{<++>}{<++>}\<CR><++>","tex")
 
+call IMAP(g:Tex_Leader.'3', '\sqrt[<++>]{<++>}<++>', "tex")
 call IMAP('.->',"\\rightarrow ",'tex')
 call IMAP('.=>',"\\Rightarrow ",'tex')
 call IMAP('.|>',"\\mapsto ",'tex')
@@ -115,8 +119,6 @@ let g:Tex_ViewRule_ps = 'ghostview'
 "let g:Tex_ViewRule_pdf = '/home/users/zsolt/bin/latex-viewer -watch -widgetless -scale 0.6'
 let g:Tex_ViewRule_pdf = '/home/zsolt/bin/latex-viewer '
 let g:Tex_ViewRule_dvi = 'xdvi'
-let g:Tex_Leader = "'"
-let g:Tex_Leader2 = ':'
 let g:Tex_CompileRule_pdf = "/home/zsolt/bin/latex-compile -interaction=nonstopmode -shell-escape $*"
 let s:target = 'pdf'
 
