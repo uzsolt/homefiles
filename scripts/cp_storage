@@ -1,11 +1,16 @@
 #!/bin/sh
 
-DATE=`date +'%Y%m%d'`
+DATE=`date +'%Y-%m-%d'`
 DESTDIR=/usr/local/www/storage
 
 PARAMS=
 for f in $*; do
-  PARAMS="${PARAMS} `readlink -f ${f} | sed 's,\(.*\)\/\([^/]*\)\/\([^/]*\),\1/./\2/\3,'`"
+  if readlink -f ${f} > /dev/null ; then
+    PARAMS="${PARAMS} `readlink -f ${f} | sed 's,\(.*\)\/\([^/]*\)\/\([^/]*\),\1/./\2/\3,'`"
+  else
+    echo "Doesn't exist: ${f}"
+    exit 1
+  fi
 done
 
 rsync -av --ignore-existing --info=progress2 -R \
