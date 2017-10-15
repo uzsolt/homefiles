@@ -1,0 +1,24 @@
+#!/bin/sh
+
+REMOTEDIR=~/remote
+
+if [ $# -eq 0 ]; then
+  echo Usage: $0 mountpoint
+  exit 1
+fi
+
+case $1 in
+  kismano)
+    sshfs -o idmap=user kismano@kismano:/home/kismano ${REMOTEDIR}/kismano
+    ;;
+  rpi)
+    curlftpfs ftp://rpi ${REMOTEDIR}/rpi
+    ;;
+  vps)
+    sshfs -o idmap=user zsolt@uzsolt.hu:/usr/home ${REMOTEDIR}/vps
+    ;;
+  *)
+    echo Unknown mount: $1
+    exit 1
+    ;;
+esac
