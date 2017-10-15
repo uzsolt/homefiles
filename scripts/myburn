@@ -1,0 +1,54 @@
+#!/bin/sh
+
+BURNDIR=/home/zsolt/.cache/burn/
+BURNDEVICE=/dev/cd0
+MKISOFSOPTS="-r -f -v -joliet-long"
+GROWISOFSOPTS="-dvd-compat -speed=2 -Z ${BURNDEVICE}"
+
+error() {
+  echo -e "\e[31mERR: $*" >&2
+  exit 1
+}
+
+msg() {
+  echo -e "\e[32m>> $*\e[39m"
+}
+
+if [ ! -d $BURNDIR ]; then
+  error $BURNDIR does not exist
+fi
+
+if [ $# -eq 0 ]; then 
+  error Does not set label
+fi
+
+msg Getting size of $BURNDIR...
+SIZE=$(du -msL ${BURNDIR} | awk {'print $1'})
+if [ $SIZE -lt 1000 ]; then
+  msg "$BURNDIR has too low size (${SIZE}M)"
+  msg "If correct please ENTER, otherwise please Control-C"
+  read x
+elif [ $SIZE -gt 4500 ]; then
+  error "$BURNDIR has too big size (${SIZE}M)"
+fi
+msg "Correct size (${SIZE}M)"
+
+msg "Goto into ${BURNDIR}"
+cd ${BURNDIR}
+msg "Files in ${BURNDIR}"
+echo -e "\e[33m"
+find -Ls . -type f | sed "s,^\./,," | column -x | sed "s,^,  ,"
+echo
+msg "If correct please ENTER, otherwise please Control-C"
+read x
+
+CMD="growisofs ${GROWISOFSOPTS} -V $1 ${MKISOFSOPTS} ."
+msg "Run burning with command:"
+msg ${CMD}
+${CMD}
+if [ $? -eq 0 ]; then
+  msg "Done"
+else
+  error "Something wrong. Please check above."
+fi
+
