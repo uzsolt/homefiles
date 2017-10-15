@@ -1,0 +1,33 @@
+#!/bin/sh
+
+CONFIGDIR=/home/zsolt/.config/backups
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+
+if [ $# -eq 0 ]; then
+  exit 1
+fi
+
+logger -t backup "[[[ Backup $1 ]]]" 
+if [ -r $CONFIGDIR/$1 ]; then
+  . $CONFIGDIR/$1
+  HOSTS="${DESTDIR}"
+  for host in ${HOSTS}; do
+    {
+      server=`echo ${host} | sed -rn '/::/ s,(.+)::.*,\1,p'`
+      if [ -n "${server}" ]; then
+        if ping -q -c 1 -t 2 ${server} > /dev/null; then
+          echo "${host}"
+        else
+          echo "Warning: ${server} is unavailable"
+          continue
+        fi
+      else
+        echo ${host}
+      fi
+      /usr/local/bin/rdiff-backup --include-globbing-filelist "${CONFIGDIR}/${FILELIST}" "${SOURCEDIR}" "${host}" > /dev/null
+      [ $? -ne 0 ] && logger -t backup "Error: $1 $host"
+    } | sed -l 's,^,  ,'
+  done
+fi | sed -l 's,^,  ,' | logger -t backup
+
+logger -t backup "[[[ End backup $1 ]]]"
