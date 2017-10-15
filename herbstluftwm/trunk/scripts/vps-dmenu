@@ -2,7 +2,7 @@
 
 VPSLIST="37.17.172.201 backup.uzsolt.hu builder.uzsolt.hu devel.uzsolt.hu uzsolt.hu rpi"
 
-vps=`echo ${VPSLIST} | tr ' ' '\n' | dmenu -p 'VPS > ' -l 5`
+vps=`echo ${VPSLIST} | tr ' ' '\n' | dmenu -p 'VPS > ' -l 6`
 if [ $? -eq 0 ]; then
   if echo $VPSLIST | grep -q -w ${vps}; then
     myterminal vps ${vps}
