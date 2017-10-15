@@ -1,0 +1,12 @@
+#!/bin/sh
+
+DATE=`date +'%Y%m%d'`
+DESTDIR=/usr/local/www/storage
+
+PARAMS=
+for f in $*; do
+  PARAMS="${PARAMS} `readlink -f ${f} | sed 's,\(.*\)\/\([^/]*\)\/\([^/]*\),\1/./\2/\3,'`"
+done
+
+rsync -av --ignore-existing --info=progress2 -R \
+  ${PARAMS} uzsolt.hu:${DESTDIR}/${DATE}/
