@@ -1,0 +1,7 @@
+#!/bin/sh
+
+PATH=${PATH}:/usr/local/bin
+WALLPAPER_DIR=${HOME}/wallpapers/desktop
+
+DISPLAY=:0 feh --randomize --bg-fill `find ${WALLPAPER_DIR} -type f -or -type l`
+
