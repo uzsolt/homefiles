@@ -1,20 +1,21 @@
 #!/bin/sh
 
+tmux_session () {
+  if tmux has-session -t $1 2> /dev/null; then
+    TMUXCMD="attach -t $1"
+  else
+    TMUXCMD="new-session -s $1"
+  fi
+}
+
 case "${1}" in
-  dox)
-    if tmux has-session -t dox 2> /dev/null; then
-      TMUXCMD="attach -t dox"
-    else
-      TMUXCMD="new-session -s dox"
-    fi
-    st -c sterm -n sterm -t dox -T dox -f 'inconsolata:size=12' -e tmux -2 ${TMUXCMD}
+  devel|dox)
+    tmux_session $1
+    st -c sterm -n sterm -t ${1} -T ${1} -f 'inconsolata:size=12' -e tmux -2 ${TMUXCMD}
     ;;
   vps)
     SERVER=${2-uzsolt.hu}
     st -c sterm -n sterm -t vps -T vps -f 'inconsolata:size=12' -e ssh ${SERVER}
-    ;;
-  devel)
-    st -c sterm -n sterm -t devel -T devel -f 'inconsolata:size=12' -e tmux -2
     ;;
   *)
     urxvt-config-sh $*
