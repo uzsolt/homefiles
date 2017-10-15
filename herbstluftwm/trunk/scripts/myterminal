@@ -1,0 +1,21 @@
+#!/bin/sh
+
+case "${1}" in
+  dox)
+    if tmux has-session -t dox 2> /dev/null; then
+      herbstclient use dox
+    else
+      st -c sterm -n sterm -t dox -T dox -f 'inconsolata:size=12' -e tmux -2 new-session -s dox
+    fi
+    ;;
+  vps)
+    SERVER=${2-uzsolt.hu}
+    st -c sterm -n sterm -t vps -T vps -f 'inconsolata:size=12' -e ssh ${SERVER}
+    ;;
+  devel)
+    st -c sterm -n sterm -t devel -T devel -f 'inconsolata:size=12' -e tmux -2
+    ;;
+  *)
+    urxvt-config-sh $*
+    ;;
+esac
