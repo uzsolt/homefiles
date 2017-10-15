@@ -1,10 +1,10 @@
 #!/bin/sh
 
 for f in /home/zsolt/.config/backups/*.rdiff; do
-    MAXAGE=5W
-    . ${f}
-    for d in ${DESTDIR}; do
-        echo Clearing ${d}
-        /usr/local/bin/rdiff-backup --remove-older-than ${MAXAGE} --force ${d}
-    done
+  MAXAGE=5W
+  . ${f}
+  for d in ${DESTDIR}; do
+    echo Clearing ${d}
+    /usr/local/bin/rdiff-backup --remove-older-than ${MAXAGE} --force ${d}
+  done
 done | logger -t backup
