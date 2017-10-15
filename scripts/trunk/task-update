@@ -1,0 +1,12 @@
+#!/bin/sh
+
+LOGDIR=${HOME}/logfiles
+
+task_create() {
+  outfile=${LOGDIR}/$1
+  shift
+  task $* 2> /dev/null | sed -n '$ s, task.*,,p' > ${outfile}
+}
+
+task_create task1 due.before:7d
+task_create task2 due.before:20d and due.after:7d
