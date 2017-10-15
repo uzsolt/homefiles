@@ -3,10 +3,11 @@
 case "${1}" in
   dox)
     if tmux has-session -t dox 2> /dev/null; then
-      herbstclient use dox
+      TMUXCMD="attach -t dox"
     else
-      st -c sterm -n sterm -t dox -T dox -f 'inconsolata:size=12' -e tmux -2 new-session -s dox
+      TMUXCMD="new-session -s dox"
     fi
+    st -c sterm -n sterm -t dox -T dox -f 'inconsolata:size=12' -e tmux -2 ${TMUXCMD}
     ;;
   vps)
     SERVER=${2-uzsolt.hu}
