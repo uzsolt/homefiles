@@ -1,0 +1,26 @@
+#!/bin/sh
+
+AWT_TOOLKIT=MToolkit
+#export GDK_NATIVE_WINDOWS=true
+LANG=hu_HU.UTF-8
+_JAVA_AWT_WM_NONREPARENTING=1
+
+setxkbmap -model 'pc104' -layout 'hu' -variant basic
+test -f ~/.Xdefaults && xrdb -load ~/.Xdefaults 
+xmodmap ~/.Xmodmap
+
+(sleep 3 ; /home/zsolt/bin/start-newsbeuter ) &
+
+xset m 20/4
+xset b off
+
+echo Starting window manager...
+
+/home/zsolt/bin/change-wallpaper
+dbus-launch --csh-syntax  > $HOME/logfiles/dbus.csh  
+
+tmux new-session -t main -d -x 149 -y 38 &
+tmux new-session -t dox -d -x 82 -y 40 -c /home/zsolt/docs/ &
+tmux new-session -t devel -d &
+
+herbstluftwm > ${HOME}/logfiles/hlwm
