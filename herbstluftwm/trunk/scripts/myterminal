@@ -18,6 +18,7 @@ case "${1}" in
     st -c sterm -n sterm -t vps -T vps -f 'inconsolata:size=12' -e ssh ${SERVER}
     ;;
   *)
-    urxvt-config-sh $*
+    tmux_session main
+    urxvt-config-sh $* tmux -2 ${TMUXCMD}
     ;;
 esac
