@@ -19,8 +19,8 @@ echo Starting window manager...
 /home/zsolt/bin/change-wallpaper
 dbus-launch --csh-syntax  > $HOME/logfiles/dbus.csh  
 
-tmux new-session -t main -d -x 149 -y 38 &
-tmux new-session -t dox -d -x 82 -y 40 -c /home/zsolt/docs/ &
-tmux new-session -t devel -d -x 167 -y 40 &
+tmux has-session -t main  2>/dev/null || tmux new-session -t main -d -x 149 -y 38 &
+tmux has-session -t dox   2>/dev/null || tmux new-session -t dox -d -x 82 -y 40 -c /home/zsolt/docs/ &
+tmux has-session -t devel 2>/dev/null || tmux new-session -t devel -d -x 167 -y 40 &
 
 herbstluftwm > ${HOME}/logfiles/hlwm
