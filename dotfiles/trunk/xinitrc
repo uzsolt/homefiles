@@ -21,6 +21,6 @@ dbus-launch --csh-syntax  > $HOME/logfiles/dbus.csh
 
 tmux new-session -t main -d -x 149 -y 38 &
 tmux new-session -t dox -d -x 82 -y 40 -c /home/zsolt/docs/ &
-tmux new-session -t devel -d &
+tmux new-session -t devel -d -x 167 -y 40 &
 
 herbstluftwm > ${HOME}/logfiles/hlwm
