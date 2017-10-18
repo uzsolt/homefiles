@@ -1,7 +1,6 @@
 #!/bin/sh
 
 AWT_TOOLKIT=MToolkit
-#export GDK_NATIVE_WINDOWS=true
 LANG=hu_HU.UTF-8
 _JAVA_AWT_WM_NONREPARENTING=1
 
