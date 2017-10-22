@@ -1,0 +1,100 @@
+#!/bin/sh
+
+# Requirements:
+# - program to retrive files (fetch, curl, wget), can set with FETCH
+# - html-xml-utils https://www.w3.org/Status.html#HTML-XML-utils
+
+URL=https://www.tvmustra.hu/tvmusor/
+CHANNELS="RTLKLUB TV2 FILMPLUSSZ MOZIPLUSZ PARAMOUNT VIASAT3 RTLPLUSZ"
+STOREDIR=~/logfiles/tvmusor/
+FETCH=/usr/bin/fetch
+DAYS_BACK=3
+
+get_three_prev_days() {
+  RESULT=""
+  for day in `seq ${DAYS_BACK} 0`; do
+    RESULT="${RESULT} $(date -j -v-${day}d +"%Y-%m-%d")"
+  done
+  echo "${RESULT}"
+}
+
+# $1 - channel
+# $2 - date
+fetch_chan_date() {
+  ${FETCH} -q "${URL}/${1}/${2}" -o "${STOREDIR}/${1}-${2}.html"
+}
+
+# $1 - channel
+fetch_chan() {
+  for date in `get_three_prev_days`; do
+    fetch_chan_date "${1}" "${date}"
+  done
+}
+
+fetch_all() {
+  for chan in ${CHANNELS}; do
+    fetch_chan "${chan}"
+  done
+}
+
+if [ $# -eq 0 ]; then
+  if ! which -s hxnormalize; then
+    echo "Could not find hxnormalize. Please install html-xml-utils!" >&2
+    exit 1
+  fi
+  mkdir -p "${STOREDIR}"
+cat << EOF
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TV-műsor az elmúlt néhány napra</title>
+  <style>
+    a {
+      color:black;
+      text-decoration:none;
+    }
+    table.date {
+      background: lightblue;
+    }
+    table,th,td {
+      border: 1px solid black;
+    }
+    table {
+      display:inline-block;
+      float: left;
+    }
+    tr:nth-child(even) {
+      background: #EEE;
+    }
+    tr:nth-child(odd) {
+      background: #DDD;
+    }
+    th {
+      background: #BBB;
+    }
+    td {
+      vertical-align:top;
+    }
+  </style>
+</head>
+<body>
+EOF
+  nr_channels=`echo ${CHANNELS} | wc -w`
+  for date in `get_three_prev_days`; do
+    printf '<table class="date"><tr><th colspan="%s">%s</th></tr><tr>\n' "${nr_channels}" "${date}"
+    for chan in ${CHANNELS}; do
+      echo '<td><table>'
+      FILE=${STOREDIR}/${chan}-${date}.html
+      [ -e "${FILE}" ] || fetch_chan "${chan}"
+      printf '<tr><th>%s</th><th>%s</th></tr>\n' "" "${chan}"
+      hxnormalize -l 1000 -x "${FILE}" | hxselect -s '\n' .title | \
+         sed 's@.*title=\".*|\(.*\)\"><span class=\"time\">\(.*\)</span> - <span class=\"name\">\(.*\)</span>.*@<tr><td>\2</td><td><a target="_blank" href="https://www.google.hu/search?q=\3 site:port.hu" title="\1">\3</a></td></tr>@g'
+      echo '</table></td>'
+    done
+    printf '</tr></table>'
+  done
+  printf '</body></html>'
+elif [ "$1" = "fetch" ]; then
+  fetch_all
+fi
