@@ -4,18 +4,20 @@ extensions="jpg\|jpeg\|gif\|png"
 
 ext=${1##*.}
 if echo $1 | grep -i -q "$extensions\$"; then
-    file=$(mktemp -t newsbeuter-browser)
-    download=""
-    if echo $1 | grep -q kecskefeszek\.net; then
-        download=$(echo $1 | sed "s@thumbs/@@")
-    else
-        download=$1
-    fi
-    fetch --no-verify-hostname --no-verify-peer "$download" -o ${file}
-    newsbeuter-image-viewer -b ${file} || read
-    rm ${file}
+  file=$(mktemp -t newsbeuter-browser)
+  download=""
+  if echo $1 | grep -q kecskefeszek\.net; then
+    download=$(echo $1 | sed "s@thumbs/@@")
+  else
+    download=$1
+  fi
+  fetch --no-verify-hostname --no-verify-peer "$download" -o ${file}
+  newsbeuter-image-viewer -b ${file} || read
+  rm ${file}
+elif echo $1 | grep -q ncore.cc; then
+  /home/zsolt/bin/mybrowser `echo $1 | sed 's,action=download,action=details,'`
 else
-    /home/zsolt/bin/mybrowser $1
+  /home/zsolt/bin/mybrowser $1
 fi
 
 
