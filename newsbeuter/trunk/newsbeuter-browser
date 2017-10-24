@@ -16,6 +16,8 @@ if echo $1 | grep -i -q "$extensions\$"; then
   rm ${file}
 elif echo $1 | grep -q ncore.cc; then
   /home/zsolt/bin/mybrowser `echo $1 | sed 's,action=download,action=details,'`
+elif echo $1 | grep -q diablotorrent; then
+  /home/zsolt/bin/mybrowser `echo $1 | sed 's,rss/download/.*/\(.*\),details/\1,'`
 else
   /home/zsolt/bin/mybrowser $1
 fi
