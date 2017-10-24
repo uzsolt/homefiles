@@ -22,7 +22,7 @@ goto-first-unread yes
 
 feedlist-format "%3i %-12T %11u %t"
 articlelist-format "%3i|%1f|%D| %-80t | (%a)"
-article-sort-order flags
+article-sort-order date
 highlight feedlist "[1-9][0-9]*/[0-9]*" white red
 
 color listnormal_unread   default   default bold
