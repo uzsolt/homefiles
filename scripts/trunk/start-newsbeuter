@@ -1,0 +1,5 @@
+#!/bin/sh
+
+urxvt -icon /home/zsolt/wallpapers/icons/rss.png -title RSS -name RSS +sb -sh 10 -fg white \
+    -pixmap /home/zsolt/wallpapers/map.png -fn "xft:inconsolata:size=11" \
+    -e newsbeuter -d /home/zsolt/logfiles/newsbeuter-error.log
