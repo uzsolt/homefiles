@@ -1,0 +1,18 @@
+#!/bin/sh
+
+LOGDIR=/home/zsolt/logfiles/
+SERVERSVNDIR=/home/zsolt/svn/server-dotfiles
+
+for vps in uzsolt.hu backup.uzsolt.hu builder.uzsolt.hu devel.uzsolt.hu 37.17.172.201; do
+  echo " ==> ${vps}"
+  (
+    date
+    printf "\npkg upgrade\n"
+    ssh ${vps} doas /usr/local/sbin/pkg upgrade -y
+    printf "\nsvn update\n"
+    ssh ${vps} "/usr/bin/svnlite update ${SERVERSVNDIR}"
+    printf "\nmake server-dotfiles\n"
+    ssh ${vps} doas /usr/bin/make -C /home/zsolt/svn/server-dotfiles/
+    printf "\n====================\n"
+  ) >> ${LOGDIR}vps-${vps}.log
+done
