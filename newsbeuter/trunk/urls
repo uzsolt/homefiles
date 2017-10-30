@@ -89,6 +89,10 @@ http://stackoverflow.com/feeds/tag?tagnames=sh&sort=newest "geek/shell"
 http://superuser.com/feeds/tag/bash "geek/shell"
 http://superuser.com/feeds/tag/sed "geek/shell"
 
+https://stackoverflow.com/feeds/tag?tagnames=svn&sort=newest "geek/svn"
+https://superuser.com/feeds/tag?tagnames=svn&sort=newest "geek/svn"
+https://unix.stackexchange.com/feeds/tag?tagnames=subversion&sort=newest "geek/svn"
+
 http://www.delmagyar.hu/_rss.php?fid=16 "local"
 http://www.hirstart.hu/site/publicrss.php?pos=fokoteg&pid=98&fid=1767 "local"
 http://hodmezovasarhely.hu/rss/hu "local"
