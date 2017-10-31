@@ -1,0 +1,23 @@
+#!/bin/sh
+
+URL=$1
+if echo ${URL} | grep -q ncore.cc; then
+  TORRENTFILE=`mktemp -t newsbeuter-torrent`
+  fetch "${URL}" -o "${TORRENTFILE}"
+  clear
+  transmission-show "${TORRENTFILE}"
+  echo '(D)ownload (G)oogle (E)xit'
+  read x
+  case "${x}" in
+    [dD])
+      cp "${TORRENTFILE}" /home/zsolt/downloads/torrent$$.torrent
+      ;;
+    [gG])
+      /home/zsolt/bin/mybrowser "https://www.google.hu/search"
+      ;;
+    [eE])
+      exit 0;
+      ;;
+  esac
+  rm "${TORRENTFILE}"
+fi

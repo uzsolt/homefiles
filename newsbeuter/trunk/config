@@ -10,6 +10,10 @@ history-limit 200
 keep-articles-days 14
 max-items 100
 
+bookmark-cmd /home/zsolt/bin/newsbeuter-bookmark
+bookmark-autopilot yes
+bookmark-interactive yes
+
 refresh-on-startup yes
 auto-reload yes
 reload-time 20
