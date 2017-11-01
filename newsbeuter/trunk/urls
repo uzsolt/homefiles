@@ -89,6 +89,7 @@ http://stackoverflow.com/feeds/tag?tagnames=sh&sort=newest "geek/shell"
 http://superuser.com/feeds/tag/bash "geek/shell"
 http://superuser.com/feeds/tag/sed "geek/shell"
 
+https://serverfault.com/feeds/tag?tagnames=svn&sort=newest "geek/svn"
 https://stackoverflow.com/feeds/tag?tagnames=svn&sort=newest "geek/svn"
 https://superuser.com/feeds/tag?tagnames=svn&sort=newest "geek/svn"
 https://unix.stackexchange.com/feeds/tag?tagnames=subversion&sort=newest "geek/svn"
