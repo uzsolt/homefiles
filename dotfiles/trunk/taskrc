@@ -1,0 +1,49 @@
+# Files
+data.location=/home/zsolt/.task
+defaultwidth=20
+dateformat.annotation=Y/M/D H:N
+
+color.header = black on white
+color.project.munkaköz=white on rgb003
+color.project.verseny=green on black
+color.project.freebsd=red on rgb333
+color.project.aur=blue on rgb333
+color.project.vim=rgb252 on rgb333
+color.due.today=bold white 
+color.due.tomorrow=yellow on white
+color.active=bold white
+color.pri.M=black on yellow
+color.pri.L=black on cyan
+color.pri.none=black on white
+#color.recurring=red on black
+
+report.list.columns=id,priority,project,due.formatted,description
+report.list.labels=ID,PRI,PRO,DUE,DESC
+
+report.ls.columns=id,priority,project,due.formatted,description
+report.ls.labels=ID,PRI,PRO,DUE,DESC
+
+report.munkaköz.filter=status:pending and project:munkaköz
+report.munkaköz.columns=id,due.formatted,description
+report.munkaköz.labels=ID,DUE,DESC
+report.munkaköz.sort=due+
+
+report.short.description=Simple, short
+report.short.columns=id,due.formatted,description
+report.short.labels=ID,DUE,DESC
+report.short.filter=status:pending or status:waiting
+report.short.sort=due+
+
+report.verseny.filter=status:pending and project:versenyek
+report.verseny.columns=id,due.formatted,description
+report.verseny.labels=ID,DUE,DESC
+report.verseny.sort=due+
+
+report.vshort.description=Very short
+report.vshort.columns=due.formatted,description
+report.vshort.labels=DUE,DESC
+report.vshort.filter=status:pending or status:waiting
+report.vshort.sort=due+
+
+detection=off
+defaultwidth=100
