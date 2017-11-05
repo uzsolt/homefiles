@@ -1,0 +1,40 @@
+#!/bin/sh
+
+RSYNC_REMOTE="192.168.2.103"
+RSYNC_MAIN_PARAMS="--password-file=/home/zsolt/.rsync.passwd -avz -rt"
+
+msg() {
+  echo "*** $*"
+}
+
+msg "zsolt-home"
+rsync ${RSYNC_MAIN_PARAMS} \
+  --exclude='*cache*' \
+  --exclude='*.swp*' \
+  --exclude='swap' \
+  --exclude='undos' \
+  --exclude='*.aux' \
+  --exclude='*.log' \
+  --exclude='Kismano' \
+  --exclude='chromium' \
+  --exclude='.svn' \
+  /home/zsolt/Catalogs /home/zsolt/docs/ /home/zsolt/bin \
+  /home/zsolt/progs /home/zsolt/public_html /home/zsolt/texmf \
+  /home/zsolt/.config /home/zsolt/.task /home/zsolt/.vim \
+  zsolt@${RSYNC_REMOTE}::zsolt-home
+
+msg "zsolt-storage"
+rsync ${RSYNC_MAIN_PARAMS} \
+  /home/storage/letoltott/doksik \
+  /home/storage/kepek \
+  zsolt@${RSYNC_REMOTE}::zsolt-storage
+
+msg "zsolt-git"
+rsync ${RSYNC_MAIN_PARAMS} \
+  /home/git \
+  zsolt@${RSYNC_REMOTE}::zsolt-git
+
+msg "zsolt-svn"
+rsync ${RSYNC_MAIN_PARAMS} \
+  /home/storage/svn/ \
+  zsolt@${RSYNC_REMOTE}::zsolt-svn
