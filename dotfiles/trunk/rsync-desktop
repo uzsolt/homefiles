@@ -1,0 +1,19 @@
+DIRS="/home/zsolt/Catalogs /home/zsolt/docs/ /home/zsolt/bin \
+  /home/zsolt/progs /home/zsolt/public_html /home/zsolt/texmf \
+  /home/zsolt/.config /home/zsolt/.task /home/zsolt/.vim \
+  /home/storage/letoltott/doksik \
+  /home/storage/kepek \
+  /home/git \
+  /home/storage/svn/"
+EXCLUDE="\
+  --exclude='*cache*' \
+  --exclude='*.swp*' \
+  --exclude='swap' \
+  --exclude='undos' \
+  --exclude='*.aux' \
+  --exclude='*.log' \
+  --exclude='Kismano' \
+  --exclude='chromium'"
+REMOTE="192.168.2.103"
+REMOTEDIR="/var/backups/zsolt/"
+BKPDIR="/var/backups/rsync.bkp/zsolt/"
