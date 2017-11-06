@@ -7,7 +7,7 @@ PATH=/bin/:/usr/bin/:/usr/local/bin
 # - html-xml-utils https://www.w3.org/Status.html#HTML-XML-utils
 
 URL=https://www.tvmustra.hu/tvmusor/
-CHANNELS="RTLKLUB TV2 FILMPLUSSZ MOZIPLUSZ PARAMOUNT VIASAT3 RTLPLUSZ"
+CHANNELS="RTLKLUB TV2 FILMPLUSSZ MOZIPLUSZ PARAMOUNT VIASAT3 RTLPLUSZ DISCOVERYCHANNEL"
 STOREDIR=~/logfiles/tvmusor/
 FETCH=/usr/bin/fetch
 DAYS_BACK=3
