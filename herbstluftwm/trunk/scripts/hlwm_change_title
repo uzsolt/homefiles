@@ -1,0 +1,7 @@
+#!/bin/sh
+
+herbstclient --idle window_title_changed | while read line; do
+  WID=`echo "${line}" | awk '{print $2}'`
+  TITLE=`echo "${line}" | awk '{$1="";$2="";print $0}'`
+  echo "${TITLE}" | grep -q "SquirrelMail - Mozilla Firefox" && herbstclient set_attr clients.${WID}.pseudotile true
+done

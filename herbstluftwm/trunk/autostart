@@ -90,6 +90,7 @@ LC_ALL=C conky -d -c /home/zsolt/.config/herbstluftwm/external/conkyrc &
 stalonetray -c /home/zsolt/.config/herbstluftwm/external/stalonetray &
 ~/.config/herbstluftwm/scripts/sxhkd-watch &
 ~/.config/herbstluftwm/scripts/dzen.sh &
+~/.config/herbstluftwm/scripts/hlwm_change_title &
 ~/.config/herbstluftwm/scripts/notify_mount.sh &
 dunst -conf ~/.config/herbstluftwm/external/dunstrc &
 (sleep 2 ; /usr/local/bin/speedcrunch) &
