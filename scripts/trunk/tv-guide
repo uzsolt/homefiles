@@ -7,18 +7,24 @@ PATH=/bin/:/usr/bin/:/usr/local/bin
 # - html-xml-utils https://www.w3.org/Status.html#HTML-XML-utils
 
 URL=https://www.tvmustra.hu/tvmusor/
-CHANNELS="RTLKLUB TV2 FILMPLUSSZ MOZIPLUSZ PARAMOUNT VIASAT3 RTLPLUSZ DISCOVERYCHANNEL"
+CONF=~/.tvmusor
 STOREDIR=~/logfiles/tvmusor/
 FETCH=/usr/bin/fetch
-DAYS_BACK=3
 
-get_three_prev_days() {
+[ -r "${CONF}" ] && . ${CONF}
+
+CHANNELS=${CHANNELS:-RTLKLUB TV2}
+DAYS_BACK=${DAYS_BACK:-3}
+
+get_prev_days() {
   RESULT=""
   for day in `seq ${DAYS_BACK} 0`; do
     RESULT="${RESULT} $(date -j -v-${day}d +"%Y-%m-%d")"
   done
   echo "${RESULT}"
 }
+
+PREV_DAYS=`get_prev_days`
 
 # $1 - channel
 # $2 - date
@@ -28,7 +34,7 @@ fetch_chan_date() {
 
 # $1 - channel
 fetch_chan() {
-  for date in `get_three_prev_days`; do
+  for date in ${PREV_DAYS}; do
     fetch_chan_date "${1}" "${date}"
   done
 }
@@ -83,7 +89,7 @@ cat << EOF
 <body>
 EOF
   nr_channels=`echo ${CHANNELS} | wc -w`
-  for date in `get_three_prev_days`; do
+  for date in ${PREV_DAYS}; do
     printf '<table class="date"><tr><th colspan="%s">%s</th></tr><tr>\n' "${nr_channels}" "${date}"
     for chan in ${CHANNELS}; do
       echo '<td><table>'
