@@ -1,0 +1,44 @@
+#!/bin/sh
+
+[ $# -eq 0 ] && exit 1
+
+trap "clean" INT TERM EXIT
+clean() {
+  [ -n "${FILES_TO_CLEAN}" ] && rm -r ${FILES_TO_CLEAN}
+}
+
+/usr/bin/which -s svn || alias svn=/usr/bin/svnlite
+
+LATEXMK=/usr/local/bin/latexmk
+DOCDIR=/home/zsolt/docs
+TOHOMEPAGE=${DOCDIR}/to_homepage.psv
+STATICDIR=/home/zsolt/svn/uzsolt.hu/static
+HOST="uzsolt.hu"
+
+exist_in_list() {
+  grep -q "${fullname}|" ${TOHOMEPAGE}
+}
+
+FILES_TO_CLEAN=""
+
+for f in $*; do
+  ff=`stat -f %R ${f}`
+  fullname=`echo $1 | sed "s,^${DOCDIR}/,,"`
+  if exist_in_list ${fullname}; then
+    DATE=`date +'%Y.%m.%d. %H:%M'`
+    REV=`svn info ${DOCDIR} | sed -n '/Revision:/ s,.*: ,,p'`
+    TARGETFILE=${STATICDIR}/`grep "${fullname}|" "${TOHOMEPAGE}" | awk -F "|" '{print $2}'`
+
+    TMPFILE=`mktemp ${ff}-XXXX`
+    FILES_TO_CLEAN="${FILES_TO_CLEAN} ${TMPFILE}"
+
+    cp ${ff} ${TMPFILE}
+    JOBNAME="svn-updating-$$"
+    /home/zsolt/bin/tex-convert-homepage \
+      "${TMPFILE}" "${DATE}" "${REV}"
+
+    ${LATEXMK} -silent -cd --jobname="${JOBNAME}" -pdf "${TMPFILE}"
+    cp ${ff%/*}/${JOBNAME}.pdf ${TARGETFILE}
+    ${LATEXMK} -silent -cd --jobname="${JOBNAME}" -C "${TMPFILE}"
+  fi
+done
