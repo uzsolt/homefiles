@@ -24,6 +24,7 @@ set noincsearch
 set isfname-==
 
 set bg=dark
+hi Normal ctermbg=black
 se encoding=utf-8
 "se fileencoding=utf-8
 se termencoding=utf-8
