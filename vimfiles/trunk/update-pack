@@ -1,5 +1,7 @@
 #!/bin/sh
 
+which -s svn || alias svn=/usr/bin/svnlite
+
 while read line; do
   dir=`echo ${line} | sed "s,.*/\([^/]*\),pack/\1,"`
   if [ -d ${dir} ]; then
