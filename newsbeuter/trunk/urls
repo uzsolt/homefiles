@@ -29,6 +29,8 @@ http://qdb.hu/latest/rss "fun"
 http://www.topviccek.hu/Rss "fun"
 http://kecskefeszek.net/rss/vicc "fun"
 
+http://vim.wikia.com/wiki/Special:RecentChanges?feed=atom "geek"
+
 http://bagojur.blog.hu/rss2 "geek/blogs"
 http://commandline.blog.hu/rss2 "geek/blogs"
 http://feeds2.feedburner.com/Command-line-fu "geek/blogs"
