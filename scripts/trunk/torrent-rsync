@@ -1,0 +1,15 @@
+#!/bin/sh
+
+PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+
+RSYNC="rsync -q -e ssh --remove-source-files -r --include '*.torrent' --exclude '*' "
+TORRENTDIR="/usr/home/hdd/torrent/torrentek/"
+
+if ping -q -c 1 -t 2 mokamester >/dev/null 2>&1 ; then
+  eval ${RSYNC} zsolt@mokamester:/home/zsolt/downloads/ ${TORRENTDIR} > /dev/null 2>&1
+fi
+
+if ping -q -c 1 -t 2 kismano >/dev/null 2>&1 ; then
+  eval ${RSYNC} kismano@kismano:/home/kismano/downloads/ ${TORRENTDIR} > /dev/null 2>&1
+fi
+

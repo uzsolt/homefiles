@@ -1,0 +1,26 @@
+#!/bin/sh
+
+PATH=/bin:/sbin:/usr/bin:/usr/local/bin
+
+pgrep -q transmission || exit 0
+
+FULL_UP=30
+FULL_DOWN=3000
+LIM_UP=3
+LIM_DOWN=700
+
+ret=1
+for host in kismano mokamester; do
+  ping -q -c 2 -t 2 ${host} >/dev/null 2>&1
+  xret=$?
+  ret=$((ret*xret))
+done
+
+(if [ $ret -eq 0 ]; then
+  echo "Limit to ${LIM_DOWN}/${LIM_UP}"
+  transmission-remote -u ${LIM_UP} -d ${LIM_DOWN} >/dev/null
+else
+  echo "Limit to 800/25"
+  transmission-remote -u 25 -d 800 >/dev/null
+fi) | logger -t torrent
+
