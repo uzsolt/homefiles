@@ -18,9 +18,9 @@ done
 
 (if [ $ret -eq 0 ]; then
   echo "Limit to ${LIM_DOWN}/${LIM_UP}"
-  transmission-remote -u ${LIM_UP} -d ${LIM_DOWN} >/dev/null
+  transmission-remote -u ${LIM_UP} -d ${LIM_DOWN} >/dev/null 2>&1
 else
   echo "Limit to 800/25"
-  transmission-remote -u 25 -d 800 >/dev/null
+  transmission-remote -u 25 -d 800 >/dev/null 2>&1
 fi) | logger -t torrent
 
